@@ -1,0 +1,32 @@
+{
+  "name": "apple-store-us",
+  "version": "1.0.0",
+  "description": "Apple store US",
+  "main": "index.js",
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "format": "prettier --write \"**/*.{js,jsx,json}\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PaulieScanlon/gatsby-apple-store.git"
+  },
+  "author": "Paul Scanlon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PaulieScanlon/gatsby-apple-store/issues"
+  },
+  "homepage": "https://github.com/PaulieScanlon/gatsby-apple-store#readme",
+  "dependencies": {
+    "gatsby": "^2.23.22",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "gatsby-theme-apple-store": "*"
+  },
+  "devDependencies": {
+    "prettier": "^2.0.5"
+  }
+}

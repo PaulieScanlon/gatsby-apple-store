@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "scripts": {
+    "develop:uk": "yarn workspace apple-store-uk develop",
+    "build:uk": "yarn workspace apple-store-uk build",
+    "clean:uk": "yarn workspace apple-store-uk clean",
+    "develop:us": "yarn workspace apple-store-us develop",
+    "build:us": "yarn workspace apple-store-us build",
+    "clean": "yarn workspace apple-store-uk clean && yarn workspace apple-store-us clean",
+    "format": "yarn workspace apple-store-uk format && yarn workspace apple-store-uk format && yarn workspace apple-store-us format"
+  },
+  "workspaces": [
+    "gatsby-theme-apple-store",
+    "apple-store-uk",
+    "apple-store-us"
+  ]
+}
