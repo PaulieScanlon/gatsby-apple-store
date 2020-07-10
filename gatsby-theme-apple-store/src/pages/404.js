@@ -1,6 +1,5 @@
-import React from 'react';
-import Main from '../components/Main';
+import React, { Fragment } from 'react'
 
-const NotFoundPage = () => <Main>This is the Not Found Page</Main>;
+const NotFoundPage = () => <Fragment>This is the Not Found Page</Fragment>
 
-export default NotFoundPage;
+export default NotFoundPage

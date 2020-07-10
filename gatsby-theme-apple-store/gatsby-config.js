@@ -1,6 +1,7 @@
 module.exports = {
   plugins: [
     `gatsby-plugin-theme-ui`,
+    `gatsby-plugin-mdx`,
     {
       resolve: `gatsby-plugin-layout`,
       options: {

@@ -1,9 +1,13 @@
 import React, { Fragment } from 'react'
 import { Heading } from 'theme-ui'
 
-const IndexPage = ({ products }) => {
+import { useShopify } from 'gatsby-theme-apple-store'
+
+const IndexPage = () => {
+  const products = useShopify()
   return (
     <Fragment>
+      <Heading as="h1">UK Store</Heading>
       <Heading as="h2">Products</Heading>
       <code>
         <pre>{JSON.stringify(products.allShopifyProduct.edges, null, 2)}</pre>
