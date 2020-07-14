@@ -5,6 +5,7 @@ import { useShopify } from 'gatsby-theme-apple-store'
 
 const IndexPage = () => {
   const products = useShopify()
+
   return (
     <Container>
       <Box

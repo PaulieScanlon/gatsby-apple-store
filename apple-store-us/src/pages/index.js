@@ -1,10 +1,11 @@
 import React from 'react'
-import { Container, Heading } from 'theme-ui'
+import { Container, Box, Heading } from 'theme-ui'
 
 import { useShopify } from 'gatsby-theme-apple-store'
 
 const IndexPage = () => {
   const products = useShopify()
+
   return (
     <Container>
       <Box
