@@ -1,19 +1,15 @@
 import React, { Fragment } from 'react'
-import { Box, Container, Text } from 'theme-ui'
+import { Box } from 'theme-ui'
+
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 const PagesLayout = ({ children }) => {
   return (
-    // <Fragment>{children}</Fragment>
     <Fragment>
-      <Box as="header">
-        <Text>Header</Text>
-      </Box>
-      <Box as="main">
-        <Container>{children}</Container>
-      </Box>
-      <Box as="footer">
-        <Text>Footer</Text>
-      </Box>
+      <Header />
+      <Box as="main">{children}</Box>
+      <Footer />
     </Fragment>
   )
 }

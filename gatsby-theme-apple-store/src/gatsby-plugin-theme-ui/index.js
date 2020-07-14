@@ -28,13 +28,22 @@ export default {
     heading: 1.1,
   },
   fontSizes: [12, 16, 18, 28, 32, 64],
-  space: [0, 4, 8, 16, 32, 48, 64],
+  space: [0, 4, 8, 16, 32, 48, 64, 96, 128],
+  zIndices: {
+    header: '999',
+  },
+  radii: [8],
+  shadows: [
+    '0px 0px 25px -10px rgba(0,0,0,0.20)',
+    '0px 0px 50px -10px rgba(0,0,0,0.20)',
+  ],
+
   sizes: {
     container: 940,
   },
   layout: {
     container: {
-      p: [2, 4],
+      px: 4,
     },
   },
   text: {
@@ -102,6 +111,17 @@ export default {
         color: 'secondary',
       },
     },
+    header: {
+      position: 'fixed',
+      mt: 3,
+      width: '100%',
+    },
+    footer: {
+      mb: 3,
+      mx: 'auto',
+      px: 3,
+      maxWidth: 'container',
+    },
   },
   links: {
     nav: {
@@ -127,6 +147,23 @@ export default {
     secondary: {
       variant: 'badges.default',
       backgroundColor: 'secondary',
+    },
+  },
+  cards: {
+    default: {
+      borderRadius: 0,
+      boxShadow: 1,
+      p: 3,
+    },
+    primary: {
+      color: 'text',
+      backgroundColor: 'background',
+      variant: 'cards.default',
+    },
+    secondary: {
+      color: 'background',
+      backgroundColor: 'text',
+      variant: 'cards.default',
     },
   },
   messages: {
@@ -166,6 +203,7 @@ export default {
       variant: 'buttons.default',
     },
   },
+
   forms: {
     input: {
       ':focus': {
