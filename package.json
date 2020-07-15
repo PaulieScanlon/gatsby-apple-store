@@ -11,7 +11,6 @@
     "format": "yarn workspace style-guide format && yarn workspace apple-store-uk format && yarn workspace apple-store-us format && yarn workspace gatsby-theme-apple-store format"
   },
   "workspaces": [
-    "base-repo",
     "style-guide",
     "apple-store-uk",
     "apple-store-us",
