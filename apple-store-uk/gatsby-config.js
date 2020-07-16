@@ -1,15 +1,15 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   plugins: [
-    `gatsby-theme-apple-store`,
+    `apple-store-theme`,
     {
-      resolve: `gatsby-source-shopify`,
+      resolve: `apple-store-core`,
       options: {
-        shopName: `gatsby-apple-store-uk`,
-        accessToken: `8fed51db3995e80988243f4a26874a40`,
-        apiVersion: `2020-07`,
-        verbose: true,
-        paginationSize: 250,
-        includeCollections: [`shop`, `content`],
+        shopName: process.env.GATSBY_SHOPIFY_SHOP_NAME,
+        accessToken: process.env.GATSBY_SHOPIFY_ACCESS_TOKEN,
       },
     },
   ],

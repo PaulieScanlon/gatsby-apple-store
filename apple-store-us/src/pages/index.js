@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Box, Heading } from 'theme-ui'
 
-import { useShopify } from 'gatsby-theme-apple-store'
+import { useShopify } from 'apple-store-core'
 
 const IndexPage = () => {
   const products = useShopify()

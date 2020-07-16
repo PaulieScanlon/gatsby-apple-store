@@ -1,7 +1,7 @@
 {
-  "name": "style-guide",
+  "name": "apple-store-core",
   "version": "1.0.0",
-  "description": "Style Guide for gatsby-theme-apple-store",
+  "description": "Core for both apple stores",
   "main": "index.js",
   "scripts": {
     "develop": "gatsby develop",
@@ -20,11 +20,13 @@
     "url": "https://github.com/PaulieScanlon/gatsby-apple-store/issues"
   },
   "homepage": "https://github.com/PaulieScanlon/gatsby-apple-store#readme",
-  "dependencies": {
+  "peerDependencies": {
     "gatsby": "^2.23.22",
-    "apple-store-theme": "*",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
+  },
+  "dependencies": {
+    "gatsby-source-shopify": "^3.2.20"
   },
   "devDependencies": {
     "prettier": "^2.0.5"

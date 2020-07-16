@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{Jti0:function(n,e,t){"use strict";t.r(e);var a=t("mXGw"),i=t.n(a);e.default=function(){return i.a.createElement(a.Fragment,null,"This is the Not Found Page")}}}]);
-//# sourceMappingURL=component---gatsby-theme-apple-store-src-pages-404-js-9293fd9960494077a2ff.js.map

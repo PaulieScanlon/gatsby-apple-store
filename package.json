@@ -8,12 +8,13 @@
     "develop:us": "yarn workspace apple-store-us develop",
     "build:us": "yarn workspace apple-store-us build",
     "clean": "yarn workspace style-guide clean && yarn workspace apple-store-uk clean && yarn workspace apple-store-us clean",
-    "format": "yarn workspace style-guide format && yarn workspace apple-store-uk format && yarn workspace apple-store-us format && yarn workspace gatsby-theme-apple-store format"
+    "format": "yarn workspace style-guide format && yarn workspace apple-store-uk format && yarn workspace apple-store-us format && yarn workspace apple-store-theme format"
   },
   "workspaces": [
+    "apple-store-theme",
+    "apple-store-core",
     "style-guide",
     "apple-store-uk",
-    "apple-store-us",
-    "gatsby-theme-apple-store"
+    "apple-store-us"
   ]
 }
