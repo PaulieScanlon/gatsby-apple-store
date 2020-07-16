@@ -1,25 +1,23 @@
-import React from 'react'
-import { Container, Box, Heading } from 'theme-ui'
+import React, { Fragment } from 'react'
+import { Container, Heading } from 'theme-ui'
 
 import { useShopify } from 'apple-store-core'
+import { Hero } from 'apple-store-theme'
 
 const IndexPage = () => {
   const products = useShopify()
 
   return (
-    <Container>
-      <Box
-        sx={{
-          pt: 7,
-        }}
-      >
+    <Fragment>
+      <Hero>
         <Heading as="h1">UK Store</Heading>
-        <Heading as="h2">Products</Heading>
-      </Box>
-      <code>
-        <pre>{JSON.stringify(products.allShopifyProduct.edges, null, 2)}</pre>
-      </code>
-    </Container>
+      </Hero>
+      <Container>
+        <code>
+          <pre>{JSON.stringify(products.allShopifyProduct.edges, null, 2)}</pre>
+        </code>
+      </Container>
+    </Fragment>
   )
 }
 

@@ -5,13 +5,16 @@ export default {
   colors: {
     text: '#24292E',
     background: '#ffffff',
-    primary: '#eb3837',
+    primary: '#00B0FF',
     secondary: '#2b3252',
     muted: '#f7f7f7',
-    highlight: '#fdb5b5',
+    highlight: '#B3E5FC',
     gray: '#a0a0a0',
-    accent: '#fad744',
+    accent: '#FDD835',
     darken: '#444444',
+    primaryLight: '#fef7f7',
+    primaryMid: '#ffefef',
+    primaryDarK: '#fee6e6',
   },
   fonts: {
     body: 'Ruda',
@@ -39,7 +42,8 @@ export default {
   ],
 
   sizes: {
-    container: 940,
+    hero: 400,
+    container: 960,
   },
   layout: {
     container: {
@@ -56,7 +60,7 @@ export default {
       m: 0,
     },
   },
-  breakpoints: [540, 720, 960, 1140],
+  breakpoints: ['540px', '720px', '960px', '1140px'],
   styles: {
     root: {
       fontFamily: 'body',
@@ -113,14 +117,15 @@ export default {
     },
     header: {
       position: 'fixed',
-      mt: 3,
+      mx: 'auto',
+      pt: 3,
+      px: 3,
       width: '100%',
     },
     footer: {
       mb: 3,
       mx: 'auto',
       px: 3,
-      maxWidth: 'container',
     },
   },
   links: {
@@ -203,7 +208,6 @@ export default {
       variant: 'buttons.default',
     },
   },
-
   forms: {
     input: {
       ':focus': {

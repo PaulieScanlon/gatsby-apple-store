@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Text, Card } from 'theme-ui'
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <Box
       as="footer"
@@ -10,10 +10,14 @@ const Footer = () => {
       }}
     >
       <Card variant="secondary">
-        <Text>Footer</Text>
+        <Box
+          sx={{
+            m: 'auto',
+          }}
+        >
+          <Text>Footer</Text>
+        </Box>
       </Card>
     </Box>
   )
 }
-
-export default Footer

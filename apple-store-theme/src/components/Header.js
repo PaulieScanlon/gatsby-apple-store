@@ -1,7 +1,9 @@
 import React from 'react'
-import { Box, Text, Card, Container } from 'theme-ui'
+import { Box, Flex, Card } from 'theme-ui'
 
-const Header = () => {
+import { Logo } from './Logo'
+
+export const Header = () => {
   return (
     <Box
       as="header"
@@ -9,17 +11,27 @@ const Header = () => {
         variant: 'styles.header',
       }}
     >
-      <Container
-        sx={{
-          px: 3,
-        }}
-      >
-        <Card>
-          <Text>Header</Text>
-        </Card>
-      </Container>
+      <Card>
+        <Flex
+          sx={{
+            alignItems: 'center',
+            m: 'auto',
+            px: 3,
+          }}
+        >
+          <Logo />
+          <Box
+            sx={{
+              fontFamily: 'heading',
+              fontSize: 2,
+              ml: 2,
+              mt: 1,
+            }}
+          >
+            Apple Store
+          </Box>
+        </Flex>
+      </Card>
     </Box>
   )
 }
-
-export default Header
