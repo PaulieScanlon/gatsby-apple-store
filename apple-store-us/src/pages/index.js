@@ -1,19 +1,18 @@
 import React, { Fragment } from 'react'
-import { Container, Heading } from 'theme-ui'
+import { Container } from 'theme-ui'
 
 import { useShopify } from 'apple-store-core'
 import { Hero, TopPicks } from 'apple-store-theme'
 
 const IndexPage = () => {
   const {
+    shopifyShop: { name, description },
     allShopifyProduct: { edges },
   } = useShopify()
 
   return (
     <Fragment>
-      <Hero>
-        <Heading as="h1">US Store</Heading>
-      </Hero>
+      <Hero name={name} description={description} />
       <Container>
         <TopPicks edges={edges} />
       </Container>

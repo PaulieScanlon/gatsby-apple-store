@@ -4,6 +4,11 @@ export const useShopify = () => {
   return useStaticQuery(
     graphql`
       query {
+        shopifyShop {
+          name
+          description
+          moneyFormat
+        }
         allShopifyProduct {
           edges {
             node {

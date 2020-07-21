@@ -1,7 +1,8 @@
 import React from 'react'
-import { Box, Container } from 'theme-ui'
+import PropTypes from 'prop-types'
+import { Box, Container, Heading, Text } from 'theme-ui'
 
-export const Hero = ({ children }) => {
+export const Hero = ({ name, description }) => {
   return (
     <Box
       sx={{
@@ -11,7 +12,19 @@ export const Hero = ({ children }) => {
         backgroundColor: 'primaryLight',
       }}
     >
-      <Container>{children}</Container>
+      <Container>
+        <Heading as="h1" variant="styles.h1">
+          {name}
+        </Heading>
+        <Text>{description}</Text>
+      </Container>
     </Box>
   )
+}
+
+Hero.propTypes = {
+  /** The name of the store */
+  name: PropTypes.string.isRequired,
+  /** The description of the store */
+  description: PropTypes.string.isRequired,
 }
