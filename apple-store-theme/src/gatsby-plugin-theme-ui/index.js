@@ -1,4 +1,3 @@
-import { lighten } from '@theme-ui/color'
 import codeTheme from '@theme-ui/prism/presets/oceanic-next.json'
 
 export default {
@@ -6,15 +5,15 @@ export default {
     text: '#24292E',
     background: '#ffffff',
     primary: '#00B0FF',
-    secondary: '#2b3252',
+    secondary: '#FF4081',
     muted: '#f7f7f7',
-    highlight: '#B3E5FC',
+    highlight: '#fbd0df', // secondary mid scale
     gray: '#a0a0a0',
     accent: '#FDD835',
-    darken: '#444444',
-    primaryLight: '#fef7f7',
-    primaryMid: '#ffefef',
-    primaryDarK: '#fee6e6',
+    darken: '#8B5E3C',
+    primaryLight: '#e6f7ff',
+    primaryMid: '#b3e7ff',
+    primaryDark: '#b3e7ff',
   },
   fonts: {
     body: 'Ruda',
@@ -25,13 +24,15 @@ export default {
     body: 400,
     heading: 700,
     bold: 700,
+    light: 200,
   },
   lineHeights: {
     body: 2.2,
-    heading: 1.1,
+    heading: 1.2,
+    text: 1.6,
   },
-  fontSizes: [12, 16, 18, 28, 32, 64],
-  space: [0, 4, 8, 16, 32, 48, 64, 96, 128],
+  fontSizes: [14, 16, 18, 28, 32, 64],
+  space: [0, 4, 8, 16, 32, 48, 64, 96, 128, 256],
   zIndices: {
     header: '999',
   },
@@ -53,6 +54,7 @@ export default {
   text: {
     default: {
       fontFamily: 'body',
+      lineHeight: 'body',
     },
     heading: {
       fontFamily: 'heading',
@@ -96,9 +98,29 @@ export default {
       ...codeTheme,
     },
     hr: {
-      my: 4,
-      borderStyle: 'solid',
-      borderColor: 'muted',
+      default: {
+        my: 4,
+        borderStyle: 'solid',
+        borderColor: 'muted',
+      },
+      variant: 'styles.hr.default',
+    },
+    spacer: {
+      sm: {
+        borderStyle: 'none',
+        borderColor: 'transparent',
+        my: 1,
+      },
+      md: {
+        borderStyle: 'none',
+        borderColor: 'transparent',
+        my: 2,
+      },
+      lg: {
+        borderStyle: 'none',
+        borderColor: 'transparent',
+        my: 3,
+      },
     },
     donut: {
       secondary: {
@@ -121,6 +143,7 @@ export default {
       pt: 3,
       px: 3,
       width: '100%',
+      zIndex: 'header',
     },
     footer: {
       mb: 3,
@@ -159,6 +182,7 @@ export default {
       borderRadius: 0,
       boxShadow: 1,
       p: 3,
+      minHeight: '100%',
     },
     primary: {
       color: 'text',
@@ -174,16 +198,17 @@ export default {
   messages: {
     primary: {
       borderLeftColor: 'primary',
-      backgroundColor: lighten('primary', 0.3),
+      backgroundColor: 'primaryMid',
     },
     secondary: {
       borderLeftColor: 'secondary',
-      backgroundColor: lighten('secondary', 0.68),
+      backgroundColor: 'highlight',
     },
   },
   buttons: {
     default: {
       cursor: 'pointer',
+      borderRadius: 0,
       display: 'inline-flex',
       placeItems: 'center',
       textTransform: 'uppercase',

@@ -8,7 +8,7 @@ export const Hero = ({ children }) => {
         pt: 7,
         pb: 4,
         minHeight: 'hero',
-        backgroundColor: 'primaryMid',
+        backgroundColor: 'primaryLight',
       }}
     >
       <Container>{children}</Container>

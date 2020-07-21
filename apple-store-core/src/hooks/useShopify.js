@@ -8,22 +8,24 @@ export const useShopify = () => {
           edges {
             node {
               title
-              handle
-              productType
-              vendor
-              variants {
-                title
-                weight
-                weightUnit
-                presentmentPrices {
-                  edges {
-                    node {
-                      price {
-                        amount
-                        currencyCode
-                      }
+              description
+              images {
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 600, quality: 90) {
+                      ...GatsbyImageSharpFluid
                     }
                   }
+                }
+                originalSrc
+              }
+              variants {
+                price
+                weight
+                weightUnit
+                priceV2 {
+                  amount
+                  currencyCode
                 }
               }
             }

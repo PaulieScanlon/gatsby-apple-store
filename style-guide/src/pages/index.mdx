@@ -5,6 +5,48 @@
   }}
 >
 
+<!-- CUSTOM COMPONENTS -->
+
+## Custom Components
+
+##### [Hero](#hero)
+
+```javascript
+...
+```
+
+<Hero />
+<Divider />
+
+##### [ProductCard](#product-card)
+
+```javascript
+<ProductCard
+  image="https://placedog.net/400/200"
+  heading="Lorem ipsum"
+  description="Duis sit amet malesuada odio. In pretium lobortis sapien"
+  currency="£"
+  price={0.64}
+  cta="add to cart"
+/>
+```
+
+<Box
+  sx={{
+    maxWidth: 400,
+  }}
+>
+  <ProductCard
+    image="https://placedog.net/400/200"
+    heading="Lorem ipsum"
+    description="Duis sit amet malesuada odio. In pretium lobortis sapien, lacinia efficitur dolor. Ut mattis lectus sed rhoncus congue"
+    currency="£"
+    price={0.64}
+    cta="add to cart"
+  />
+</Box>
+<Divider />
+
 # This is the style-guide
 
 <hr />
@@ -369,6 +411,12 @@ This line is only separated by a single newline, so it's a separate line in the 
   <Box sx={{ backgroundColor: 'accent', p: 3, mb: 3, width: '100%' }} />
   <Label sx={{ color: 'text' }}>darken</Label>
   <Box sx={{ backgroundColor: 'darken', p: 3, mb: 3, width: '100%' }} />
+  <Label sx={{ color: 'text' }}>primaryLight</Label>
+  <Box sx={{ backgroundColor: 'primaryLight', p: 3, mb: 3, width: '100%' }} />
+  <Label sx={{ color: 'text' }}>primaryMid</Label>
+  <Box sx={{ backgroundColor: 'primaryMid', p: 3, mb: 3, width: '100%' }} />
+  <Label sx={{ color: 'text' }}>primaryDark</Label>
+  <Box sx={{ backgroundColor: 'primaryDark', p: 3, mb: 3, width: '100%' }} />
 </Flex>
 
 <Divider />
@@ -999,16 +1047,6 @@ Badges need a variant, the default can't be styled at the moment
 ```
 
 <MenuButton aria-label="Toggle Menu" />
-
-<!-- CUSTOM COMPONENTS -->
-
-## Custom Components
-
-##### [ProductCard](#product-card)
-
-```javascript
-...
-```
 
 </Box>
 </Container>

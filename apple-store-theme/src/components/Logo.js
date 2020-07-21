@@ -10,14 +10,15 @@ export const Logo = () => {
       height="32px"
     >
       <path
-        style={{
-          fill: '#8B5E3C',
+        sx={{
+          fill: 'darken',
         }}
         d="M14.5,8.6c0.1,0.4-1.5,0.9-1.6,0c-0.6-3.6,2.4-5.8,2.4-5.8l2.3,0.9C17.5,3.7,13.9,6.4,14.5,8.6z"
       />
       <path
-        style={{
-          fill: '#6AB966',
+        sx={{
+          // special case so the leaf is always green
+          fill: '#6ab966',
         }}
         d="M12.8,6.5c0,0-3.7,1.1-6.4-0.6C3.7,4.1,3,0.3,3,0.3S6.7-0.7,9.4,1C12.1,2.7,12.8,6.5,12.8,6.5z"
       />

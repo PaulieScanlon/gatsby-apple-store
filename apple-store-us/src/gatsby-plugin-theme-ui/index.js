@@ -5,6 +5,7 @@ export default {
   colors: {
     ...baseTheme.colors,
     primary: '#eb3837',
+    secondary: '#6ab966',
     primaryLight: '#fef7f7',
     primaryMid: '#ffefef',
     primaryDarK: '#fee6e6',
