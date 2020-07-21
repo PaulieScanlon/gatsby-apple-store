@@ -1,11 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Box, Container, Heading, Text } from 'theme-ui'
+import { Box, Container, Heading, Text, Divider } from 'theme-ui'
 
 export const Hero = ({ name, description }) => {
   return (
     <Box
       sx={{
+        alignItems: 'center',
+        display: 'flex',
         pt: 7,
         pb: 4,
         minHeight: 'hero',
@@ -13,9 +15,16 @@ export const Hero = ({ name, description }) => {
       }}
     >
       <Container>
+        <Heading as="div" variant="styles.h1">
+          Oh hey there!{' '}
+          <span role="img" aria-label="wave emoji">
+            👋
+          </span>
+        </Heading>
         <Heading as="h1" variant="styles.h1">
           {name}
         </Heading>
+        <Divider variant="styles.spacer.lg" />
         <Text>{description}</Text>
       </Container>
     </Box>
