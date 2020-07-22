@@ -41,10 +41,10 @@ export default {
     '0px 0px 25px -10px rgba(0,0,0,0.20)',
     '0px 0px 50px -10px rgba(0,0,0,0.20)',
   ],
-
   sizes: {
     hero: 400,
     container: 960,
+    minWidth: 320,
   },
   layout: {
     container: {
@@ -69,6 +69,7 @@ export default {
       fontWeight: 'body',
       fontSize: 0,
       lineHeight: 'body',
+      minWidth: 'minWidth',
     },
     h1: { variant: 'text.heading', fontSize: [5, 6] },
     h2: { variant: 'text.heading', fontSize: [4, 5] },
@@ -144,17 +145,24 @@ export default {
       px: 3,
       width: '100%',
       zIndex: 'header',
+      minWidth: 'minWidth',
     },
     footer: {
       mb: 3,
       mx: 'auto',
       px: 3,
+      minWidth: 'minWidth',
     },
   },
   links: {
     nav: {
+      alignItems: 'center',
+      display: 'inline-flex',
+      fontFamily: 'heading',
+      fontWeight: 'body',
       fontSize: 1,
-      fontWeight: 'bold',
+      textTransform: 'capitalize',
+      transition: '.2s linear color',
       ':focus': {
         outlineColor: 'highlight',
       },

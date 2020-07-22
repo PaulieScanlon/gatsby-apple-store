@@ -8,6 +8,6 @@ export default {
     secondary: '#eb3837',
     primaryLight: '#f0f8f0',
     primaryMid: '#e2f6e1',
-    primaryDarK: '#a6d5a3',
+    primaryDark: '#a6d5a3',
   },
 }

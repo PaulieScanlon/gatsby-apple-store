@@ -1,9 +1,20 @@
 import React from 'react'
-import { Box, Flex, Card } from 'theme-ui'
+import { Box, Flex, Card, NavLink, Grid, MenuButton } from 'theme-ui'
+import { Link as GatsbyLink } from 'gatsby'
+
+import { useSite } from '../hooks/useSite'
 
 import { Logo } from './Logo'
+import { Cart } from './Cart'
+import { Dropdown } from './Dropdown'
 
 export const Header = () => {
+  const {
+    site: {
+      siteMetadata: { name, type, associateStores },
+    },
+  } = useSite()
+
   return (
     <Box
       as="header"
@@ -14,22 +25,75 @@ export const Header = () => {
       <Card>
         <Flex
           sx={{
-            alignItems: 'center',
-            m: 'auto',
-            px: 3,
+            justifyContent: 'space-between',
           }}
         >
-          <Logo />
-          <Box
-            sx={{
-              fontFamily: 'heading',
-              fontSize: 2,
-              ml: 2,
-              mt: 1,
-            }}
-          >
-            Apple Store
-          </Box>
+          <NavLink as={GatsbyLink} to="/">
+            <Grid
+              sx={{
+                alignItems: 'center',
+                gridTemplateColumns: 'auto auto',
+                gridGap: 2,
+              }}
+            >
+              <Logo />
+              <Box
+                sx={{
+                  fontFamily: 'heading',
+                  fontSize: 1,
+                  mr: 2,
+                }}
+              >
+                {name}
+              </Box>
+            </Grid>
+          </NavLink>
+
+          {type === 'store' && (
+            <Grid
+              sx={{
+                alignItems: 'center',
+                gridTemplateColumns: 'auto auto',
+                gridGap: 3,
+              }}
+            >
+              <NavLink
+                as={GatsbyLink}
+                to="/products"
+                sx={{
+                  display: ['none', 'inline-flex'],
+                }}
+              >
+                products
+              </NavLink>
+              <NavLink
+                as={GatsbyLink}
+                to="/cart"
+                sx={{
+                  display: ['none', 'inline-flex'],
+                }}
+              >
+                <Cart />
+              </NavLink>
+              <Dropdown
+                sx={{
+                  display: ['block', 'none'],
+                }}
+                trigger={<MenuButton as="div" tabIndex={-1} />}
+                items={[
+                  {
+                    name: 'products',
+                    to: '/products',
+                  },
+                  {
+                    name: 'cart',
+                    to: '/cart',
+                  },
+                  ...associateStores,
+                ]}
+              />
+            </Grid>
+          )}
         </Flex>
       </Card>
     </Box>
