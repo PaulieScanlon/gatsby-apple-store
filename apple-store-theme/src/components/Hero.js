@@ -2,10 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Box, Container, Heading, Text, Divider } from 'theme-ui'
 
+import { ApplePattern } from './ApplePattern'
+
 export const Hero = ({ name, description }) => {
   return (
     <Box
       sx={{
+        position: 'relative',
         alignItems: 'center',
         display: 'flex',
         pt: 7,
@@ -14,7 +17,11 @@ export const Hero = ({ name, description }) => {
         backgroundColor: 'primaryLight',
       }}
     >
-      <Container>
+      <Container
+        sx={{
+          zIndex: 1,
+        }}
+      >
         <Heading as="div" variant="styles.h1">
           Oh hey there!{' '}
           <span role="img" aria-label="wave emoji">
@@ -27,6 +34,7 @@ export const Hero = ({ name, description }) => {
         <Divider variant="styles.spacer.lg" />
         <Text>{description}</Text>
       </Container>
+      <ApplePattern />
     </Box>
   )
 }

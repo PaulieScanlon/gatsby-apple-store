@@ -6,13 +6,12 @@ import { Hero, TopPicks } from 'apple-store-theme'
 
 const IndexPage = () => {
   const {
-    shopifyShop: { name, description },
     allShopifyProduct: { edges },
   } = useShopify()
 
   return (
     <Fragment>
-      <Hero name={name} description={description} />
+      <Hero name="UK Name" description="UK Description" />
       <Container>
         <TopPicks edges={edges} />
       </Container>

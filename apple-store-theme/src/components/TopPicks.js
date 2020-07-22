@@ -2,8 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Box, Grid, Divider } from 'theme-ui'
-
 import { ProductCard } from 'apple-store-theme'
+
+const FILTER = 'TopPick'
 
 export const TopPicks = ({ edges }) => {
   return (
@@ -14,27 +15,29 @@ export const TopPicks = ({ edges }) => {
           gridTemplateColumns: ['1fr', '1fr', '1fr 1fr'],
         }}
       >
-        {edges.splice(0, 2).map((edge, index) => {
-          const {
-            node: { title, description, images, variants },
-          } = edge
+        {edges
+          .filter((edge) => edge.node.productType === FILTER)
+          .map((edge, index) => {
+            const {
+              node: { title, description, images, variants },
+            } = edge
 
-          const {
-            childImageSharp: { fluid },
-          } = images[0].localFile
+            const {
+              childImageSharp: { fluid },
+            } = images[0].localFile
 
-          return (
-            <ProductCard
-              key={index}
-              fluid={fluid}
-              heading={title}
-              description={description}
-              currency={variants[0].priceV2.currencyCode}
-              price={Number(variants[0].price)}
-              cta="add to cart"
-            />
-          )
-        })}
+            return (
+              <ProductCard
+                key={index}
+                fluid={fluid}
+                heading={title}
+                description={description}
+                currency={variants[0].priceV2.currencyCode}
+                price={Number(variants[0].price)}
+                cta="add to cart"
+              />
+            )
+          })}
       </Grid>
       <Divider variant="styles.spacer.lg" />
     </Box>

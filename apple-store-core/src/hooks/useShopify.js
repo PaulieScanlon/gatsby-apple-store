@@ -14,6 +14,7 @@ export const useShopify = () => {
             node {
               title
               description
+              productType
               images {
                 localFile {
                   childImageSharp {
