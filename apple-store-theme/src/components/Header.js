@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Box, Flex, Card, NavLink, Grid, MenuButton } from 'theme-ui'
 import { Link as GatsbyLink } from 'gatsby'
 
@@ -50,49 +50,58 @@ export const Header = () => {
           </NavLink>
 
           {type === 'store' && (
-            <Grid
-              sx={{
-                alignItems: 'center',
-                gridTemplateColumns: 'auto auto',
-                gridGap: 3,
-              }}
-            >
-              <NavLink
-                as={GatsbyLink}
-                to="/products"
+            <Fragment>
+              <Grid
                 sx={{
-                  display: ['none', 'inline-flex'],
+                  display: ['none', 'grid'],
+                  gridTemplateColumns: 'auto auto auto',
+                  gridGap: 1,
                 }}
               >
-                products
-              </NavLink>
-              <NavLink
-                as={GatsbyLink}
-                to="/cart"
+                <NavLink as={GatsbyLink} to="/products">
+                  products
+                </NavLink>
+                <Dropdown
+                  trigger={
+                    <Box
+                      as={NavLink}
+                      sx={{
+                        cursor: 'pointer',
+                      }}
+                    >
+                      Stores{' '}
+                      <Box as="span" aria-hidden sx={{ ml: 1 }}>
+                        ▾
+                      </Box>
+                    </Box>
+                  }
+                  items={[...associateStores]}
+                />
+                <NavLink as={GatsbyLink} to="/cart">
+                  <Cart />
+                </NavLink>
+              </Grid>
+              <Flex
                 sx={{
-                  display: ['none', 'inline-flex'],
+                  display: ['flex', 'none'],
                 }}
               >
-                <Cart />
-              </NavLink>
-              <Dropdown
-                sx={{
-                  display: ['block', 'none'],
-                }}
-                trigger={<MenuButton as="div" tabIndex={-1} />}
-                items={[
-                  {
-                    name: 'products',
-                    to: '/products',
-                  },
-                  {
-                    name: 'cart',
-                    to: '/cart',
-                  },
-                  ...associateStores,
-                ]}
-              />
-            </Grid>
+                <Dropdown
+                  trigger={<MenuButton as="div" tabIndex={-1} />}
+                  items={[
+                    {
+                      name: 'products',
+                      to: '/products',
+                    },
+                    {
+                      name: 'cart',
+                      to: '/cart',
+                    },
+                    ...associateStores,
+                  ]}
+                />
+              </Flex>
+            </Fragment>
           )}
         </Flex>
       </Card>

@@ -3,12 +3,6 @@ module.exports = {
     name: `Style Guide`,
     description: `Style Guide description`,
     type: `style-guide`,
-    associateStores: [
-      {
-        name: ``,
-        url: ``,
-      },
-    ],
   },
   plugins: [
     `apple-store-theme`,

@@ -1,4 +1,15 @@
 module.exports = {
+  siteMetadata: {
+    name: ``,
+    description: ``,
+    type: ``,
+    associateStores: [
+      {
+        name: ``,
+        url: ``,
+      },
+    ],
+  },
   plugins: [
     `gatsby-plugin-theme-ui`,
     `gatsby-plugin-mdx`,

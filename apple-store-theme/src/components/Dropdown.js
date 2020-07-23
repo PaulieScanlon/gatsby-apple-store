@@ -1,19 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link as GatsbyLink } from 'gatsby'
-import { Box } from 'theme-ui'
+import { Flex } from 'theme-ui'
 import { Menu, MenuButton, MenuList, MenuLink } from '@reach/menu-button'
 import '@reach/menu-button/styles.css'
 
 export const Dropdown = ({ sx, trigger, items }) => {
   return (
-    <Box
+    <Flex
       variant="styles.dropdown"
       sx={{
         ...sx,
+        div: {
+          '&[data-reach-menu][data-reach-menu-popover]': {
+            position: 'relative',
+          },
+        },
         '.reach-menu': {
+          alignItems: 'center',
           border: 'none',
-          position: 'relative',
           p: 0,
           backgroundColor: 'background',
           ':focus': {
@@ -23,7 +28,8 @@ export const Dropdown = ({ sx, trigger, items }) => {
         '.reach-menu-list': {
           border: 'none',
           position: 'absolute',
-          right: -28,
+          top: (theme) => `${theme.space[4]}px`,
+          right: 0,
           backgroundColor: 'background',
           borderRadius: 0,
           boxShadow: 0,
@@ -67,7 +73,7 @@ export const Dropdown = ({ sx, trigger, items }) => {
           })}
         </MenuList>
       </Menu>
-    </Box>
+    </Flex>
   )
 }
 

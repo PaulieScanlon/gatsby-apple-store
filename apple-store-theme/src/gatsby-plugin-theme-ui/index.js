@@ -162,6 +162,7 @@ export default {
       fontWeight: 'body',
       fontSize: 1,
       textTransform: 'capitalize',
+      px: 1,
       transition: '.2s linear color',
       ':focus': {
         outlineColor: 'highlight',
