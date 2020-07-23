@@ -31,7 +31,7 @@ export default {
     heading: 1.2,
     text: 1.6,
   },
-  fontSizes: [14, 16, 18, 28, 32, 48, 64],
+  fontSizes: [14, 16, 18, 28, 32, 44, 64],
   space: [0, 4, 8, 16, 32, 48, 64, 96, 128, 256],
   zIndices: {
     header: '999',
@@ -60,6 +60,7 @@ export default {
       fontFamily: 'heading',
       lineHeight: 'heading',
       m: 0,
+      textShadow: '1px 1px rgba(255,255,255,1)',
     },
   },
   breakpoints: ['540px', '720px', '960px', '1140px'],
