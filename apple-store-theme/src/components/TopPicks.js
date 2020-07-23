@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Box, Grid, Divider, Heading } from 'theme-ui'
@@ -7,32 +7,17 @@ import { ProductCard } from 'apple-store-theme'
 const FILTER = 'TopPick'
 
 export const TopPicks = ({ edges }) => {
-  const [currencyCode, setCurrencyCode] = useState(
-    edges.reduce((items, item) => {
-      items = item.node.variants
-        .map((variant) => variant.priceV2.currencyCode)
-        .toString()
-
-      return items
-    }, '')
-  )
-
   return (
     <Box as="section">
       <Divider variant="styles.spacer.lg" />
-
       <Heading
         as="h2"
         variant="styles.h2"
         sx={{
           textAlign: 'center',
-          span: {
-            ml: 2,
-          },
         }}
       >
         Top Picks
-        <span role="img">{currencyCode === 'GBP' ? '🍏' : '🍎'}</span>
       </Heading>
       <Divider variant="styles.spacer.lg" />
       <Grid

@@ -1,12 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Box, Grid, Divider } from 'theme-ui'
+import { Box, Grid, Divider, Heading } from 'theme-ui'
 import { ProductCard } from 'apple-store-theme'
 
 export const Products = ({ edges }) => {
   return (
     <Box as="section">
+      <Divider variant="styles.spacer.lg" />
+      <Heading
+        as="h2"
+        variant="styles.h2"
+        sx={{
+          textAlign: 'center',
+        }}
+      >
+        Products
+      </Heading>
       <Divider variant="styles.spacer.lg" />
       <Grid
         sx={{
