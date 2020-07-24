@@ -8,8 +8,14 @@ module.exports = {
     description: `Apple Store US description`,
     associateStores: [
       {
-        name: `UK`,
+        name: `Vist UK Store`,
         url: `https://gatsby-apple-store-uk.netlify.app/`,
+        icon: '',
+      },
+      {
+        name: `Peruse the style guide`,
+        url: `https://gatsby-apple-store-style-guide.netlify.app/`,
+        icon: '',
       },
     ],
   },
