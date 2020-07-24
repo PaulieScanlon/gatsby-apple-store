@@ -8,6 +8,9 @@ export const Logo = () => {
       viewBox="0 0 25 32"
       width="32px"
       height="32px"
+      sx={{
+        mb: 1,
+      }}
     >
       <path
         sx={{

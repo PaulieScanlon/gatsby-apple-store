@@ -407,8 +407,12 @@ This line is only separated by a single newline, so it's a separate line in the 
   <Box sx={{ backgroundColor: 'muted', p: 3, mb: 3, width: '100%' }} />
   <Label sx={{ color: 'text' }}>highlight</Label>
   <Box sx={{ backgroundColor: 'highlight', p: 3, mb: 3, width: '100%' }} />
-  <Label sx={{ color: 'text' }}>gray</Label>
-  <Box sx={{ backgroundColor: 'gray', p: 3, mb: 3, width: '100%' }} />
+  <Label sx={{ color: 'text' }}>grayLight</Label>
+  <Box sx={{ backgroundColor: 'grayLight', p: 3, mb: 3, width: '100%' }} />
+  <Label sx={{ color: 'text' }}>grayMid</Label>
+  <Box sx={{ backgroundColor: 'grayMid', p: 3, mb: 3, width: '100%' }} />
+  <Label sx={{ color: 'text' }}>grayDark</Label>
+  <Box sx={{ backgroundColor: 'grayDark', p: 3, mb: 3, width: '100%' }} />
   <Label sx={{ color: 'text' }}>accent</Label>
   <Box sx={{ backgroundColor: 'accent', p: 3, mb: 3, width: '100%' }} />
   <Label sx={{ color: 'text' }}>darken</Label>
@@ -490,11 +494,15 @@ This line is only separated by a single newline, so it's a separate line in the 
 ```javascript
 <Button mr={2}>primary</Button>
 <Button mr={2} variant='secondary'>secondary</Button>
+<Button mr={2} variant='accent'>secondary</Button>
 ```
 
 <Button mr={2}>primary</Button>
 <Button mr={2} variant="secondary">
   secondary
+</Button>
+<Button mr={2} variant="accent">
+  accent
 </Button>
 <Divider />
 

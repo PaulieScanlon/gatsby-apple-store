@@ -7,7 +7,7 @@ import { ProductCard } from 'apple-store-theme'
 export const Products = ({ edges }) => {
   return (
     <Box as="section">
-      <Divider variant="styles.spacer.lg" />
+      <Divider variant="styles.spacer.md" />
       <Heading
         as="h2"
         variant="styles.h2"

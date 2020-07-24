@@ -10,11 +10,7 @@ export const Footer = () => {
       }}
     >
       <Card variant="secondary">
-        <Box
-          sx={{
-            m: 'auto',
-          }}
-        >
+        <Box>
           <Text>Footer</Text>
         </Box>
       </Card>

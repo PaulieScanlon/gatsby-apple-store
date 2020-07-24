@@ -8,7 +8,9 @@ export default {
     secondary: '#FF4081',
     muted: '#f7f7f7',
     highlight: '#fbd0df', // secondary mid scale
-    gray: '#a0a0a0',
+    grayLight: '#F7F7F7',
+    grayMid: '#CCCCCC',
+    grayDark: '#A0A0A0',
     accent: '#FDD835',
     darken: '#8B5E3C',
     primaryLight: '#e6f7ff',
@@ -45,6 +47,7 @@ export default {
     hero: 400,
     container: 960,
     minWidth: 320,
+    maxWidth: 1140,
   },
   layout: {
     container: {
@@ -59,6 +62,7 @@ export default {
     heading: {
       fontFamily: 'heading',
       lineHeight: 'heading',
+      textTransform: 'capitalize',
       m: 0,
       textShadow: '1px 1px rgba(255,255,255,1)',
     },
@@ -189,10 +193,11 @@ export default {
   },
   cards: {
     default: {
+      display: 'flex',
+      flexDirection: 'column',
       borderRadius: 0,
       boxShadow: 1,
       p: 3,
-      minHeight: '100%',
     },
     primary: {
       color: 'text',
@@ -216,22 +221,44 @@ export default {
     },
   },
   buttons: {
+    disabled: {
+      cursor: 'not-allowed',
+      backgroundColor: 'grayMid',
+    },
     default: {
       cursor: 'pointer',
-      borderRadius: 0,
       display: 'inline-flex',
       placeItems: 'center',
       textTransform: 'uppercase',
+      justifyContent: 'center',
+      fontWeight: 'bold',
       ':focus': {
         outlineColor: 'highlight',
       },
     },
     primary: {
       variant: 'buttons.default',
+      '&:disabled': {
+        variant: 'buttons.disabled',
+      },
     },
     secondary: {
       variant: 'buttons.default',
       backgroundColor: 'secondary',
+      '&:disabled': {
+        variant: 'buttons.disabled',
+      },
+    },
+    accent: {
+      color: 'text',
+      display: 'flex',
+      flex: '1 1 auto',
+      variant: 'buttons.default',
+      backgroundColor: 'accent',
+      '&:disabled': {
+        color: 'grayLight',
+        variant: 'buttons.disabled',
+      },
     },
     icon: {
       variant: 'buttons.default',
@@ -241,20 +268,37 @@ export default {
     },
     close: {
       variant: 'buttons.default',
+      width: 24,
+      height: 24,
     },
   },
   forms: {
+    radio: {
+      color: 'grayMid',
+    },
+    checkbox: {
+      color: 'grayMid',
+    },
     input: {
+      borderColor: 'grayMid',
+      py: 1,
+      px: 2,
       ':focus': {
         outlineColor: 'highlight',
       },
     },
     select: {
+      borderColor: 'grayMid',
+      py: 1,
+      px: 2,
       ':focus': {
         outlineColor: 'highlight',
       },
     },
     textarea: {
+      borderColor: 'grayMid',
+      py: 1,
+      px: 2,
       ':focus': {
         outlineColor: 'highlight',
       },
@@ -263,7 +307,7 @@ export default {
       cursor: 'pointer',
     },
     slider: {
-      color: 'gray',
+      color: 'grayLight',
       backgroundColor: 'muted',
       ':focus': {
         color: 'primary',

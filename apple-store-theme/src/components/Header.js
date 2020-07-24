@@ -5,7 +5,7 @@ import { Link as GatsbyLink } from 'gatsby'
 import { useSite } from '../hooks/useSite'
 
 import { Logo } from './Logo'
-import { Cart } from './Cart'
+import { CartIcon } from './CartIcon'
 import { Dropdown } from './Dropdown'
 
 export const Header = () => {
@@ -55,7 +55,7 @@ export const Header = () => {
                 sx={{
                   display: ['none', 'grid'],
                   gridTemplateColumns: 'auto auto auto',
-                  gridGap: 1,
+                  gridGap: 3,
                 }}
               >
                 <NavLink as={GatsbyLink} to="/products">
@@ -78,7 +78,7 @@ export const Header = () => {
                   items={[...associateStores]}
                 />
                 <NavLink as={GatsbyLink} to="/cart">
-                  <Cart />
+                  <CartIcon />
                 </NavLink>
               </Grid>
               <Flex

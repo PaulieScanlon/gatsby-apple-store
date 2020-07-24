@@ -1,0 +1,231 @@
+import React, { Fragment, useContext, useState, useEffect } from 'react'
+import {
+  Box,
+  Flex,
+  Container,
+  Card,
+  Grid,
+  Heading,
+  Divider,
+  Button,
+  Input,
+  Close,
+} from 'theme-ui'
+
+import { Context } from '../context'
+
+export const CartList = () => {
+  const {
+    state: { itemsInCart },
+    dispatch,
+  } = useContext(Context)
+
+  const [cartCurrency, setCartCurrency] = useState('')
+  const [cartTotal, setCartTotal] = useState(0)
+
+  useEffect(() => {
+    setCartCurrency(
+      itemsInCart.reduce((unique, item) => {
+        return unique.includes(item.symbol) ? unique : [...unique, item.symbol]
+      }, [])
+    )
+    setCartTotal(
+      itemsInCart
+        .reduce((totals, item) => {
+          return totals + Number(item.total)
+        }, 0)
+        .toFixed(2)
+    )
+  }, [itemsInCart])
+
+  const handleQuantity = (heading, event) => {
+    dispatch({
+      type: 'updateQuantity',
+      payload: {
+        heading,
+        quantity: event.target.value,
+      },
+    })
+  }
+
+  const handleRemove = (heading) => {
+    dispatch({
+      type: 'removeFromCart',
+      payload: {
+        heading,
+      },
+    })
+  }
+
+  return (
+    <Fragment>
+      <Box
+        sx={{
+          pt: 7,
+        }}
+      />
+      <Container
+        sx={{
+          maxWidth: 'maxWidth',
+        }}
+      >
+        <Divider variant="styles.spacer.md" />
+        <Grid
+          sx={{
+            gridTemplateColumns: ['auto', 'auto', 'auto 320px'],
+          }}
+        >
+          <Box>
+            <Card className="checkout-card">
+              <Divider variant="styles.spacer.md" />
+              <Heading
+                as="div"
+                variant="styles.h4"
+                sx={{
+                  textAlign: 'center',
+                }}
+              >
+                checkout
+              </Heading>
+              <Divider variant="styles.spacer.lg" />
+              <Flex
+                sx={{
+                  flexDirection: 'column',
+                  flex: '1 1 auto',
+                }}
+              >
+                <Grid
+                  sx={{
+                    gridTemplateColumns: 'auto auto',
+                  }}
+                >
+                  <Flex>SubTotal</Flex>
+                  <Flex
+                    sx={{
+                      justifyContent: 'flex-end',
+                    }}
+                  >{`${cartCurrency}${cartTotal}`}</Flex>
+                  <Flex>Discount</Flex>
+                  <Flex
+                    sx={{
+                      justifyContent: 'flex-end',
+                    }}
+                  >{`${cartCurrency}0`}</Flex>
+                  <Flex
+                    sx={{
+                      alignItems: 'flex-end',
+                    }}
+                  >
+                    Total
+                  </Flex>
+                  <Flex
+                    sx={{
+                      alignItems: 'flex-end',
+                      fontWeight: 'bold',
+                      justifyContent: 'flex-end',
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        mr: '2px',
+                      }}
+                    >
+                      {cartCurrency}
+                    </Box>
+                    <Box
+                      as="span"
+                      sx={{
+                        fontSize: 4,
+                        lineHeight: 'heading',
+                      }}
+                    >
+                      {cartTotal}
+                    </Box>
+                  </Flex>
+                </Grid>
+              </Flex>
+              <Divider variant="styles.spacer.lg" />
+              <Flex
+                sx={{
+                  flex: '0 0 auto',
+                  flexDirection: 'column',
+                }}
+              >
+                <Button variant="accent" disabled={itemsInCart.length === 0}>
+                  checkout
+                </Button>
+              </Flex>
+            </Card>
+          </Box>
+          <Box
+            sx={{
+              gridRow: [0, 0, 1],
+            }}
+          >
+            <Card>
+              <Divider variant="styles.spacer.md" />
+              <Heading
+                as="div"
+                variant="styles.h4"
+                sx={{
+                  textAlign: 'center',
+                }}
+              >
+                order
+              </Heading>
+              <Divider variant="styles.spacer.lg" />
+              <Grid
+                sx={{
+                  gridTemplateColumns: '1fr 60px 1fr 24px',
+                  rowGap: 3,
+                }}
+              >
+                {itemsInCart.map((item, index) => {
+                  const { heading, quantity, symbol, total } = item
+                  return (
+                    <Fragment key={index}>
+                      <Flex
+                        sx={{
+                          alignItems: 'center',
+                        }}
+                      >
+                        {heading}
+                      </Flex>
+
+                      <Input
+                        min={0}
+                        max={99}
+                        value={quantity && quantity}
+                        type="number"
+                        onChange={(event) => handleQuantity(heading, event)}
+                      />
+
+                      <Flex
+                        sx={{
+                          alignItems: 'center',
+                          justifyContent: 'flex-end',
+                          fontWeight: 'bold',
+                        }}
+                      >
+                        {`${symbol}${total}`}
+                      </Flex>
+                      <Flex
+                        sx={{
+                          alignItems: 'center',
+                          justifyContent: 'flex-end',
+                        }}
+                      >
+                        <Close onClick={() => handleRemove(heading)} />
+                      </Flex>
+                    </Fragment>
+                  )
+                })}
+              </Grid>
+            </Card>
+          </Box>
+        </Grid>
+      </Container>
+      <Divider variant="styles.spacer.lg" />
+    </Fragment>
+  )
+}

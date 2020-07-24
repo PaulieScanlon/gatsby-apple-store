@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import {
   Flex,
@@ -13,7 +13,8 @@ import {
 
 import Img from 'gatsby-image'
 
-import { getCurrency } from '../../utils/getCurrency'
+import { getCurrency } from '../../utils/'
+import { Context } from '../context'
 
 export const ProductCard = ({
   fluid,
@@ -24,6 +25,36 @@ export const ProductCard = ({
   currency,
   cta,
 }) => {
+  const {
+    state: { itemsInCart },
+    dispatch,
+  } = useContext(Context)
+
+  const handleAddToCart = () => {
+    if (itemsInCart.filter((item) => item.heading === heading).length > 0) {
+      dispatch({
+        type: 'addDuplicateToCart',
+        payload: {
+          heading,
+        },
+      })
+    } else {
+      dispatch({
+        type: 'addToCart',
+        payload: {
+          fluid,
+          heading,
+          description,
+          price,
+          currency,
+          symbol: getCurrency(price, currency),
+          quantity: 1,
+          total: price,
+        },
+      })
+    }
+  }
+
   return (
     <Box as="article">
       <Card
@@ -77,7 +108,9 @@ export const ProductCard = ({
             </Heading>
           </Flex>
           <Divider variant="styles.spacer.md" />
-          <Text sx={{ color: 'gray', lineHeight: 'text', minHeight: '90px' }}>
+          <Text
+            sx={{ color: 'grayDark', lineHeight: 'text', minHeight: '90px' }}
+          >
             {description}
           </Text>
           <Divider variant="styles.spacer.lg" />
@@ -86,7 +119,7 @@ export const ProductCard = ({
               justifyContent: 'flex-end',
             }}
           >
-            <Button>{cta}</Button>
+            <Button onClick={() => handleAddToCart()}>{cta}</Button>
           </Flex>
         </Box>
       </Card>

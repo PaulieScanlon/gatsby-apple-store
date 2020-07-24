@@ -3,6 +3,8 @@ import { MDXProvider } from '@mdx-js/react'
 import * as themeUiComponents from 'theme-ui'
 import Prism from '@theme-ui/prism'
 
+import { ContextProvider } from './context'
+
 import { Hero } from './components/Hero'
 import { ProductCard } from './components/ProductCard'
 
@@ -15,5 +17,9 @@ const components = {
 }
 
 export const Provider = ({ children }) => {
-  return <MDXProvider components={components}>{children}</MDXProvider>
+  return (
+    <ContextProvider>
+      <MDXProvider components={components}>{children}</MDXProvider>
+    </ContextProvider>
+  )
 }
