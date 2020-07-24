@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { Flex, Divider } from 'theme-ui'
+import { Link as GatsbyLink } from 'gatsby'
+import { Flex, Avatar, Divider } from 'theme-ui'
 import { Menu, MenuButton, MenuList, MenuLink } from '@reach/menu-button'
 import '@reach/menu-button/styles.css'
 
@@ -32,14 +33,17 @@ export const Dropdown = ({ sx, trigger, items }) => {
           backgroundColor: 'background',
           borderRadius: 0,
           boxShadow: 0,
-          width: 200,
+          width: 170,
           p: 3,
           a: {
+            alignItems: 'center',
+            display: 'flex',
             borderRadius: (theme) => `${theme.radii[0]}px`,
             padding: (theme) => `${theme.space[1]}px ${theme.space[2]}px`,
             fontFamily: (theme) => `${theme.fonts.body}`,
             fontSize: (theme) => `${theme.fontSizes[0]}px`,
             textDecoration: 'none',
+            textTransform: 'capitalize',
             transition: '.2s linear background-color',
             '&[data-reach-menu-item][data-selected]': {
               color: (theme) => `${theme.colors.text}`,
@@ -53,12 +57,29 @@ export const Dropdown = ({ sx, trigger, items }) => {
         <MenuButton className="reach-menu-button">{trigger}</MenuButton>
         <MenuList portal={false} className="reach-menu-list">
           {items.map((item, index) => {
-            const { name, url } = item
+            const { name, url, to, icon } = item
             return (
-              <Fragment>
-                <MenuLink key={index} href={url} className="reach-menu-link">
-                  {name}
-                </MenuLink>
+              <Fragment key={index}>
+                {url ? (
+                  <MenuLink href={url} className="reach-menu-link">
+                    {icon && (
+                      <Avatar
+                        src={icon}
+                        sx={{ width: 24, height: 24, mr: 3 }}
+                      />
+                    )}
+                    {name}
+                  </MenuLink>
+                ) : (
+                  <MenuLink
+                    key={index}
+                    as={GatsbyLink}
+                    to={to}
+                    className="reach-menu-link"
+                  >
+                    {name}
+                  </MenuLink>
+                )}
                 {index === items.length - 2 ? <Divider sx={{ my: 2 }} /> : null}
               </Fragment>
             )

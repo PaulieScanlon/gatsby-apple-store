@@ -11,6 +11,7 @@ export const useSite = () => {
             associateStores {
               name
               url
+              icon
             }
           }
         }
