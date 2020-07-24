@@ -4,11 +4,10 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    name: `Apple Store UK`,
-    description: `Apple Store UK description`,
+    name: `apple store UK`,
     associateStores: [
       {
-        name: `Visit US Store`,
+        name: `visit US store`,
         url: `https://gatsby-apple-store-us.netlify.app/`,
         icon:
           'https://gatsby-apple-store-style-guide.netlify.app/images/us.svg',

@@ -7,7 +7,6 @@ export const useSite = () => {
         site {
           siteMetadata {
             name
-            description
             associateStores {
               name
               url

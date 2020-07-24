@@ -28,7 +28,7 @@ export const Header = () => {
             justifyContent: 'space-between',
           }}
         >
-          <NavLink as={GatsbyLink} to="/">
+          <NavLink as={GatsbyLink} to="/" sx={{ pl: 0 }}>
             <Grid
               sx={{
                 alignItems: 'center',
@@ -37,15 +37,7 @@ export const Header = () => {
               }}
             >
               <Logo />
-              <Box
-                sx={{
-                  fontFamily: 'heading',
-                  fontSize: 1,
-                  mr: 2,
-                }}
-              >
-                {name}
-              </Box>
+              {name}
             </Grid>
           </NavLink>
 
@@ -62,17 +54,12 @@ export const Header = () => {
               </NavLink>
               <Dropdown
                 trigger={
-                  <Box
-                    as={NavLink}
-                    sx={{
-                      cursor: 'pointer',
-                    }}
-                  >
-                    Stores{' '}
-                    <Box as="span" aria-hidden sx={{ ml: 1 }}>
+                  <Fragment>
+                    stores{' '}
+                    <Box as="span" aria-hidden sx={{ ml: 2 }}>
                       ▾
                     </Box>
-                  </Box>
+                  </Fragment>
                 }
                 items={[...associateStores]}
               />

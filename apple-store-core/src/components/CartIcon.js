@@ -38,6 +38,7 @@ export const CartIcon = () => {
                 fontSize: '10px',
                 lineHeight: 0,
                 textAlign: 'center',
+                textShadow: 'none',
                 mt: '2px',
               }}
             >

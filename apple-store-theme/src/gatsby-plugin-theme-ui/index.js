@@ -61,12 +61,16 @@ export default {
     },
     bold: {
       fontWeight: 'bold',
+      variant: 'text.default',
     },
     heading: {
       fontFamily: 'heading',
       lineHeight: 'heading',
       m: 0,
       textShadow: '1px 1px rgba(255,255,255,1)',
+      ':first-letter': {
+        textTransform: 'capitalize',
+      },
     },
   },
   breakpoints: ['540px', '720px', '960px', '1140px'],
@@ -94,6 +98,9 @@ export default {
     p: {
       fontFamily: 'body',
       fontSize: 1,
+      '::first-letter': {
+        textTransform: 'capitalize',
+      },
       code: {
         px: 0,
         whiteSpace: 'pre-wrap',
@@ -164,13 +171,12 @@ export default {
   links: {
     nav: {
       alignItems: 'center',
+      cursor: 'pointer',
       display: 'inline-flex',
-      fontFamily: 'heading',
-      fontWeight: 'body',
-      fontSize: 1,
-      textTransform: 'capitalize',
-      px: 1,
+      px: 2,
       transition: '.2s linear color',
+      textTransform: 'capitalize',
+      variant: 'styles.h5',
       ':focus': {
         outlineColor: 'highlight',
       },

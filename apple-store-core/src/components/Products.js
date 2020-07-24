@@ -15,7 +15,7 @@ export const Products = ({ edges }) => {
           textAlign: 'center',
         }}
       >
-        Products
+        products
       </Heading>
       <Divider variant="styles.spacer.lg" />
       <Grid

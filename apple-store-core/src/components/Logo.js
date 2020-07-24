@@ -9,7 +9,7 @@ export const Logo = () => {
       width="32px"
       height="32px"
       sx={{
-        mb: 1,
+        my: 1,
       }}
     >
       <path

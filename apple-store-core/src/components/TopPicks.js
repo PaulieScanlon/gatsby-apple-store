@@ -17,7 +17,7 @@ export const TopPicks = ({ edges }) => {
           textAlign: 'center',
         }}
       >
-        Top Picks
+        top picks
       </Heading>
       <Divider variant="styles.spacer.lg" />
       <Grid

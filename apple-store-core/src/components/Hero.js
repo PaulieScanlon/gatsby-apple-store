@@ -30,7 +30,7 @@ export const Hero = () => {
         }}
       >
         <Heading as="div" variant="styles.h1">
-          Oh hey there!{' '}
+          oh hey there!{' '}
           <span role="img" aria-label="wave emoji">
             👋
           </span>

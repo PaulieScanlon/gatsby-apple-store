@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Link as GatsbyLink } from 'gatsby'
-import { Flex, Avatar, Divider } from 'theme-ui'
+import { Flex, Avatar, Divider, NavLink } from 'theme-ui'
 import { Menu, MenuButton, MenuList, MenuLink } from '@reach/menu-button'
 import '@reach/menu-button/styles.css'
 
@@ -15,36 +15,25 @@ export const Dropdown = ({ sx, trigger, items }) => {
             position: 'relative',
           },
         },
-        '.reach-menu-button': {
-          alignItems: 'center',
-          border: 'none',
-          p: 0,
-          lineHeight: 'heading',
-          backgroundColor: 'background',
-          ':focus': {
-            outlineColor: 'highlight',
-          },
-        },
         '.reach-menu-list': {
           border: 'none',
+          borderRadius: 0,
+          boxShadow: 0,
           position: 'absolute',
           top: (theme) => `${theme.space[4]}px`,
           right: 0,
-          backgroundColor: 'background',
-          borderRadius: 0,
-          boxShadow: 0,
-          width: 170,
+          width: 180,
           p: 3,
+          fontFamily: 'inherit',
+          fontWeight: 'inherit',
+          fontSize: 'inherit',
           a: {
             alignItems: 'center',
             display: 'flex',
             borderRadius: (theme) => `${theme.radii[0]}px`,
             padding: (theme) => `${theme.space[1]}px ${theme.space[2]}px`,
-            fontFamily: (theme) => `${theme.fonts.body}`,
-            fontSize: (theme) => `${theme.fontSizes[0]}px`,
-            textDecoration: 'none',
-            textTransform: 'capitalize',
             transition: '.2s linear background-color',
+            textTransform: 'capitalize',
             '&[data-reach-menu-item][data-selected]': {
               color: (theme) => `${theme.colors.text}`,
               background: (theme) => `${theme.colors.primaryMid}`,
@@ -54,7 +43,9 @@ export const Dropdown = ({ sx, trigger, items }) => {
       }}
     >
       <Menu className="reach-menu">
-        <MenuButton className="reach-menu-button">{trigger}</MenuButton>
+        <MenuButton as={NavLink} tabIndex={0}>
+          {trigger}
+        </MenuButton>
         <MenuList portal={false} className="reach-menu-list">
           {items.map((item, index) => {
             const { name, url, to, icon } = item
