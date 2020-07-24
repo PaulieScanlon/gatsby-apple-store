@@ -1,6 +1,17 @@
 module.exports = (themeOptions) => {
   const { shopName, accessToken } = themeOptions
+
   return {
+    siteMetadata: {
+      name: ``,
+      description: ``,
+      associateStores: [
+        {
+          name: ``,
+          url: ``,
+        },
+      ],
+    },
     plugins: [
       `gatsby-transformer-sharp`,
       `gatsby-plugin-sharp`,
@@ -13,6 +24,12 @@ module.exports = (themeOptions) => {
           verbose: true,
           paginationSize: 250,
           includeCollections: [`shop`, `content`],
+        },
+      },
+      {
+        resolve: `gatsby-plugin-layout`,
+        options: {
+          component: require.resolve(`./src/layouts/PagesLayout.js`),
         },
       },
     ],

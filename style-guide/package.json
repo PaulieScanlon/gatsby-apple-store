@@ -21,8 +21,8 @@
   },
   "homepage": "https://github.com/PaulieScanlon/gatsby-apple-store#readme",
   "dependencies": {
-    "gatsby": "^2.23.22",
     "apple-store-theme": "*",
+    "gatsby": "^2.23.22",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },

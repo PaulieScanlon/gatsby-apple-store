@@ -1,11 +1,8 @@
-import React from 'react'
+import React, { createContext, useReducer } from 'react'
 
 // import { dummyItems } from './mock'
 
-const initialState = {
-  // itemsInCart: dummyItems,
-  itemsInCart: [],
-}
+import { useShopify } from '../hooks/useShopify'
 
 const reducer = (state, action) => {
   const { type, payload } = action
@@ -67,10 +64,18 @@ const reducer = (state, action) => {
   }
 }
 
-export const Context = React.createContext(initialState)
+export const Context = createContext({})
 
 export const ContextProvider = ({ children }) => {
-  const [state, dispatch] = React.useReducer(reducer, initialState)
+  const {
+    shopifyShop: { moneyFormat },
+  } = useShopify()
+
+  const [state, dispatch] = useReducer(reducer, {
+    itemsInCart: [],
+    // itemsInCart: [...dummyItems],
+    storeCurrency: moneyFormat.split('')[0],
+  })
 
   return (
     <Context.Provider value={{ state, dispatch }}>{children}</Context.Provider>

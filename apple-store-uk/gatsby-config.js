@@ -6,7 +6,6 @@ module.exports = {
   siteMetadata: {
     name: `Apple Store UK`,
     description: `Apple Store UK description`,
-    type: `store`,
     associateStores: [
       {
         name: `US`,

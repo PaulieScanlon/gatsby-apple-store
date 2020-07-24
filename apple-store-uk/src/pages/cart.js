@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { CartList } from 'apple-store-theme'
+import { CartList } from 'apple-store-core'
 
 const CartPage = () => {
   return <CartList />

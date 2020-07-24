@@ -1,4 +1,4 @@
-import codeTheme from '@theme-ui/prism/presets/oceanic-next.json'
+import codeTheme from '@theme-ui/prism/presets/github.json'
 
 export default {
   colors: {
@@ -33,7 +33,7 @@ export default {
     heading: 1.2,
     text: 1.6,
   },
-  fontSizes: [14, 16, 18, 28, 32, 44, 64],
+  fontSizes: [12, 14, 16, 18, 28, 32, 44, 64],
   space: [0, 4, 8, 16, 32, 48, 64, 96, 128, 256],
   zIndices: {
     header: '999',
@@ -51,7 +51,7 @@ export default {
   },
   layout: {
     container: {
-      px: 4,
+      px: 3,
     },
   },
   text: {
@@ -59,10 +59,12 @@ export default {
       fontFamily: 'body',
       lineHeight: 'body',
     },
+    bold: {
+      fontWeight: 'bold',
+    },
     heading: {
       fontFamily: 'heading',
       lineHeight: 'heading',
-      textTransform: 'capitalize',
       m: 0,
       textShadow: '1px 1px rgba(255,255,255,1)',
     },
@@ -72,16 +74,16 @@ export default {
     root: {
       fontFamily: 'body',
       fontWeight: 'body',
-      fontSize: 0,
+      fontSize: 1,
       lineHeight: 'body',
       minWidth: 'minWidth',
     },
-    h1: { variant: 'text.heading', fontSize: [5, 6] },
-    h2: { variant: 'text.heading', fontSize: [4, 5] },
-    h3: { variant: 'text.heading', fontSize: 3 },
-    h4: { variant: 'text.heading', fontSize: 2 },
-    h5: { variant: 'text.heading', fontSize: 1 },
-    h6: { variant: 'text.heading', fontSize: 0 },
+    h1: { variant: 'text.heading', fontSize: [6, 7] },
+    h2: { variant: 'text.heading', fontSize: [5, 6] },
+    h3: { variant: 'text.heading', fontSize: 4 },
+    h4: { variant: 'text.heading', fontSize: 3 },
+    h5: { variant: 'text.heading', fontSize: 2 },
+    h6: { variant: 'text.heading', fontSize: 1 },
     a: {
       color: 'secondary',
       fontFamily: 'body',
@@ -91,7 +93,7 @@ export default {
     },
     p: {
       fontFamily: 'body',
-      fontSize: 0,
+      fontSize: 1,
       code: {
         px: 0,
         whiteSpace: 'pre-wrap',

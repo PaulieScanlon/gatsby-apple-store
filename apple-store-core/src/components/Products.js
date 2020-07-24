@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Box, Grid, Divider, Heading } from 'theme-ui'
-import { ProductCard } from 'apple-store-theme'
+import { ProductCard } from '../components/ProductCard'
 
 export const Products = ({ edges }) => {
   return (

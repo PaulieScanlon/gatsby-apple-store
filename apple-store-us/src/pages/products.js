@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react'
 import { Box, Container } from 'theme-ui'
 
-import { useShopify } from 'apple-store-core'
-import { Products } from 'apple-store-theme'
+import { Products, useShopify } from 'apple-store-core'
 
 const ProductsPage = () => {
   const {

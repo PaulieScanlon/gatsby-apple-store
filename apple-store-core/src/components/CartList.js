@@ -6,29 +6,26 @@ import {
   Card,
   Grid,
   Heading,
+  Text,
   Divider,
   Button,
   Input,
   Close,
 } from 'theme-ui'
 
-import { Context } from '../context'
+import Img from 'gatsby-image'
+
+import { Context } from 'apple-store-core'
 
 export const CartList = () => {
   const {
-    state: { itemsInCart },
+    state: { itemsInCart, storeCurrency },
     dispatch,
   } = useContext(Context)
 
-  const [cartCurrency, setCartCurrency] = useState('')
   const [cartTotal, setCartTotal] = useState(0)
 
   useEffect(() => {
-    setCartCurrency(
-      itemsInCart.reduce((unique, item) => {
-        return unique.includes(item.symbol) ? unique : [...unique, item.symbol]
-      }, [])
-    )
     setCartTotal(
       itemsInCart
         .reduce((totals, item) => {
@@ -72,7 +69,7 @@ export const CartList = () => {
         <Divider variant="styles.spacer.md" />
         <Grid
           sx={{
-            gridTemplateColumns: ['auto', 'auto', 'auto 320px'],
+            gridTemplateColumns: ['auto', 'auto', 'auto', 'auto 320px'],
           }}
         >
           <Box>
@@ -104,13 +101,13 @@ export const CartList = () => {
                     sx={{
                       justifyContent: 'flex-end',
                     }}
-                  >{`${cartCurrency}${cartTotal}`}</Flex>
+                  >{`${storeCurrency}${cartTotal}`}</Flex>
                   <Flex>Discount</Flex>
                   <Flex
                     sx={{
                       justifyContent: 'flex-end',
                     }}
-                  >{`${cartCurrency}0`}</Flex>
+                  >{`${storeCurrency}0`}</Flex>
                   <Flex
                     sx={{
                       alignItems: 'flex-end',
@@ -130,7 +127,7 @@ export const CartList = () => {
                         mr: '2px',
                       }}
                     >
-                      {cartCurrency}
+                      {storeCurrency}
                     </Box>
                     <Box
                       as="span"
@@ -159,7 +156,7 @@ export const CartList = () => {
           </Box>
           <Box
             sx={{
-              gridRow: [0, 0, 1],
+              gridRow: [0, 0, 0, 1],
             }}
           >
             <Card>
@@ -176,17 +173,76 @@ export const CartList = () => {
               <Divider variant="styles.spacer.lg" />
               <Grid
                 sx={{
-                  gridTemplateColumns: '1fr 60px 1fr 24px',
+                  gridTemplateColumns: 'auto 3fr 60px auto auto 24px',
+                }}
+              >
+                <Text
+                  sx={{
+                    width: [0, 0, 80],
+                  }}
+                />
+                <Text variant="bold" sx={{ fontSize: 0 }}>
+                  Name
+                </Text>
+                <Text variant="bold" sx={{ fontSize: 0, textAlign: 'center' }}>
+                  Qty
+                </Text>
+                <Text
+                  variant="bold"
+                  sx={{
+                    fontSize: 0,
+                    textAlign: 'right',
+                    overflow: 'hidden',
+                    width: [0, 70],
+                  }}
+                >
+                  Unit Price
+                </Text>
+                <Text
+                  variant="bold"
+                  sx={{
+                    fontSize: 0,
+                    textAlign: 'right',
+                    overflow: 'hidden',
+                    width: [0, 70],
+                  }}
+                >
+                  Total
+                </Text>
+                <Text />
+              </Grid>
+              <Divider sx={{ mt: 2, mb: 3 }} />
+              <Grid
+                sx={{
+                  gridTemplateColumns: 'auto 3fr 60px auto auto 24px',
                   rowGap: 3,
                 }}
               >
                 {itemsInCart.map((item, index) => {
-                  const { heading, quantity, symbol, total } = item
+                  const {
+                    heading,
+                    fluid,
+                    quantity,
+                    symbol,
+                    price,
+                    total,
+                  } = item
                   return (
                     <Fragment key={index}>
+                      <Box
+                        sx={{
+                          borderRadius: 0,
+                          overflow: 'hidden',
+                          width: [0, 0, 80],
+                        }}
+                      >
+                        <Img fluid={fluid} alt={heading} />
+                      </Box>
                       <Flex
                         sx={{
                           alignItems: 'center',
+                          overflow: 'hidden',
+                          whiteSpace: 'nowrap',
                         }}
                       >
                         {heading}
@@ -203,8 +259,21 @@ export const CartList = () => {
                       <Flex
                         sx={{
                           alignItems: 'center',
+                          overflow: 'hidden',
                           justifyContent: 'flex-end',
                           fontWeight: 'bold',
+                          width: [0, 70],
+                        }}
+                      >
+                        {`${symbol}${price}`}
+                      </Flex>
+                      <Flex
+                        sx={{
+                          alignItems: 'center',
+                          overflow: 'hidden',
+                          justifyContent: 'flex-end',
+                          fontWeight: 'bold',
+                          width: [0, 70],
                         }}
                       >
                         {`${symbol}${total}`}

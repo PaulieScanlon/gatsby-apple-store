@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react'
 import { Container } from 'theme-ui'
 
-import { useShopify } from 'apple-store-core'
-import { Hero, TopPicks } from 'apple-store-theme'
+import { Hero, TopPicks, useShopify } from 'apple-store-core'
 
 const IndexPage = () => {
   const {
@@ -11,7 +10,7 @@ const IndexPage = () => {
 
   return (
     <Fragment>
-      <Hero name="UK Name" description="UK Description" />
+      <Hero />
       <Container>
         <TopPicks edges={edges} />
       </Container>

@@ -14,7 +14,7 @@ import {
 import Img from 'gatsby-image'
 
 import { getCurrency } from '../../utils/'
-import { Context } from '../context'
+import { Context } from 'apple-store-core'
 
 export const ProductCard = ({
   fluid,

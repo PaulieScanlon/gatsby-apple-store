@@ -8,7 +8,6 @@ import '@reach/menu-button/styles.css'
 export const Dropdown = ({ sx, trigger, items }) => {
   return (
     <Flex
-      variant="styles.dropdown"
       sx={{
         ...sx,
         div: {
@@ -16,10 +15,11 @@ export const Dropdown = ({ sx, trigger, items }) => {
             position: 'relative',
           },
         },
-        '.reach-menu': {
+        '.reach-menu-button': {
           alignItems: 'center',
           border: 'none',
           p: 0,
+          lineHeight: 'heading',
           backgroundColor: 'background',
           ':focus': {
             outlineColor: 'highlight',
@@ -51,8 +51,8 @@ export const Dropdown = ({ sx, trigger, items }) => {
         },
       }}
     >
-      <Menu>
-        <MenuButton className="reach-menu">{trigger}</MenuButton>
+      <Menu className="reach-menu">
+        <MenuButton className="reach-menu-button">{trigger}</MenuButton>
         <MenuList portal={false} className="reach-menu-list">
           {items.map((item, index) => {
             const { name, to, url } = item

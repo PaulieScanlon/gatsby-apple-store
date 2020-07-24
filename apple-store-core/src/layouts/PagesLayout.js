@@ -8,7 +8,14 @@ const PagesLayout = ({ children }) => {
   return (
     <Fragment>
       <Header />
-      <Box as="main">{children}</Box>
+      <Box
+        as="main"
+        sx={{
+          minHeight: 'calc(100vh - 80px)',
+        }}
+      >
+        {children}
+      </Box>
       <Footer />
     </Fragment>
   )
