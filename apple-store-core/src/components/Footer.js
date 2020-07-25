@@ -36,12 +36,23 @@ export const Footer = () => {
                 ☁️
               </span>
             </Text>
+            <Divider variant="styles.spacer.sm" />
+            <Text variant="bold" sx={{ fontSize: 1 }}>
+              Style Guide
+            </Text>
+            <Link
+              variant="footer"
+              sx={{ fontSize: 'inherit' }}
+              href="https://gatsby-apple-store-style-guide.netlify.app/"
+              target="_blank"
+            >
+              gatsby-apple-store-style-guide.netlify.app
+            </Link>
           </Box>
           <Box>
             <Text variant="bold" sx={{ fontSize: 1 }}>
               Twitter
             </Text>
-
             <Link
               variant="footer"
               sx={{ fontSize: 'inherit' }}
