@@ -6,7 +6,7 @@ import Img from 'gatsby-image'
 
 import { getCurrency } from '../../utils/'
 import { Context } from '../context'
-import { useSite } from '../hooks/useSite'
+import { useSite } from '../hooks/'
 
 export const ProductCard = ({
   fluid,
@@ -54,12 +54,7 @@ export const ProductCard = ({
   }
 
   return (
-    <Box
-      as="article"
-      sx={{
-        position: 'relative',
-      }}
-    >
+    <Box as="article">
       <Card
         sx={{
           position: 'relative',
@@ -91,7 +86,7 @@ export const ProductCard = ({
           </Box>
         )}
 
-        {fluid && <Img fluid={fluid} alt={heading} />}
+        {fluid && <Img fluid={fluid} alt={heading} sx={{ zIndex: 1 }} />}
 
         <Box
           sx={{

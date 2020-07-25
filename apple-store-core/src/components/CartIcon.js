@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Flex, Box } from 'theme-ui'
 
-import { Context } from 'apple-store-core'
+import { Context } from '../context'
 
 export const CartIcon = () => {
   const {

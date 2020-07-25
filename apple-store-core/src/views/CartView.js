@@ -16,7 +16,7 @@ import {
 
 import Img from 'gatsby-image'
 
-import { Context } from 'apple-store-core'
+import { Context } from '../context'
 
 export const CartView = () => {
   const {

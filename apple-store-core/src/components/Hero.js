@@ -3,7 +3,6 @@ import React from 'react'
 import { Box, Container, Heading, Text, Divider } from 'theme-ui'
 
 import { ApplePattern } from './ApplePattern'
-
 import { useShopify } from '../hooks/useShopify'
 
 export const Hero = () => {

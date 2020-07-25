@@ -5,7 +5,7 @@ import { Hero } from '../components/Hero'
 import { TopPicks } from '../components/TopPicks'
 import { MarketingMessage } from '../components/MarketingMessage'
 
-import { useShopify } from '../hooks/useShopify'
+import { useShopify } from '../hooks'
 
 export const IndexView = () => {
   const {
