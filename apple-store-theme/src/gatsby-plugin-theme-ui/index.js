@@ -57,7 +57,10 @@ export default {
   text: {
     default: {
       fontFamily: 'body',
-      lineHeight: 'body',
+      lineHeight: 'text',
+      ':first-letter': {
+        textTransform: 'capitalize',
+      },
     },
     bold: {
       fontWeight: 'bold',
@@ -84,10 +87,10 @@ export default {
     },
     h1: { variant: 'text.heading', fontSize: [6, 7] },
     h2: { variant: 'text.heading', fontSize: [5, 6] },
-    h3: { variant: 'text.heading', fontSize: 4 },
-    h4: { variant: 'text.heading', fontSize: 3 },
-    h5: { variant: 'text.heading', fontSize: 2 },
-    h6: { variant: 'text.heading', fontSize: 1 },
+    h3: { variant: 'text.heading', fontSize: 4, textShadow: 'none' },
+    h4: { variant: 'text.heading', fontSize: 3, textShadow: 'none' },
+    h5: { variant: 'text.heading', fontSize: 2, textShadow: 'none' },
+    h6: { variant: 'text.heading', fontSize: 1, textShadow: 'none' },
     a: {
       color: 'secondary',
       fontFamily: 'body',
@@ -169,6 +172,12 @@ export default {
     },
   },
   links: {
+    button: {
+      textDecoration: 'none',
+      ':focus': {
+        outlineColor: 'highlight',
+      },
+    },
     nav: {
       alignItems: 'center',
       cursor: 'pointer',
@@ -177,6 +186,12 @@ export default {
       transition: '.2s linear color',
       textTransform: 'capitalize',
       variant: 'styles.h5',
+      ':focus': {
+        outlineColor: 'highlight',
+      },
+    },
+    footer: {
+      color: 'background',
       ':focus': {
         outlineColor: 'highlight',
       },
@@ -221,7 +236,7 @@ export default {
   messages: {
     primary: {
       borderLeftColor: 'primary',
-      backgroundColor: 'primaryMid',
+      backgroundColor: 'primaryLight',
     },
     secondary: {
       borderLeftColor: 'secondary',

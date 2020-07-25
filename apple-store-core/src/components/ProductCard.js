@@ -1,20 +1,12 @@
 import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
-import {
-  Flex,
-  Box,
-  Card,
-  Image,
-  Heading,
-  Text,
-  Divider,
-  Button,
-} from 'theme-ui'
+import { Flex, Box, Card, Heading, Text, Divider, Button } from 'theme-ui'
 
 import Img from 'gatsby-image'
 
 import { getCurrency } from '../../utils/'
-import { Context } from 'apple-store-core'
+import { Context } from '../context'
+import { useSite } from '../hooks/useSite'
 
 export const ProductCard = ({
   fluid,
@@ -23,12 +15,18 @@ export const ProductCard = ({
   description,
   price,
   currency,
-  cta,
+  topPick,
 }) => {
   const {
     state: { itemsInCart },
     dispatch,
   } = useContext(Context)
+
+  const {
+    site: {
+      siteMetadata: { cta },
+    },
+  } = useSite()
 
   const handleAddToCart = () => {
     if (itemsInCart.filter((item) => item.heading === heading).length > 0) {
@@ -56,25 +54,43 @@ export const ProductCard = ({
   }
 
   return (
-    <Box as="article">
+    <Box
+      as="article"
+      sx={{
+        position: 'relative',
+      }}
+    >
       <Card
         sx={{
+          position: 'relative',
+          overflow: 'hidden',
           '.gatsby-image-wrapper': {
             borderRadius: 0,
             overflow: 'hidden',
           },
         }}
       >
-        {image && (
-          <Image
-            src={image}
-            alt={heading}
+        {topPick && (
+          <Box
             sx={{
-              borderRadius: 0,
-              overflow: 'hidden',
+              width: 200,
+              backgroundColor: 'accent',
+              position: 'absolute',
+              top: 30,
+              left: -55,
+              textAlign: 'center',
+              color: 'text',
+              transform: 'rotate(-45deg)',
+              zIndex: 1,
+              boxShadow: 1,
             }}
-          />
+          >
+            <Text variant="bold" sx={{ py: 2 }}>
+              top pick
+            </Text>
+          </Box>
         )}
+
         {fluid && <Img fluid={fluid} alt={heading} />}
 
         <Box
@@ -108,9 +124,7 @@ export const ProductCard = ({
             </Heading>
           </Flex>
           <Divider variant="styles.spacer.md" />
-          <Text
-            sx={{ color: 'grayDark', lineHeight: 'text', minHeight: '90px' }}
-          >
+          <Text variant="default" sx={{ color: 'grayDark', minHeight: '90px' }}>
             {description}
           </Text>
           <Divider variant="styles.spacer.lg" />
@@ -142,6 +156,6 @@ ProductCard.propTypes = {
   price: PropTypes.number.isRequired,
   /** The Product currency */
   currency: PropTypes.string.isRequired,
-  /** The button Call To Action */
-  cta: PropTypes.string.isRequired,
+  /** Is this a Top Pick */
+  topPick: PropTypes.bool,
 }

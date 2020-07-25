@@ -5,6 +5,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     name: `apple store UK`,
+    cta: `add to basket`,
     associateStores: [
       {
         name: `visit US store`,

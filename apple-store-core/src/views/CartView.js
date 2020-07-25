@@ -11,19 +11,21 @@ import {
   Button,
   Input,
   Close,
+  Message,
 } from 'theme-ui'
 
 import Img from 'gatsby-image'
 
 import { Context } from 'apple-store-core'
 
-export const CartList = () => {
+export const CartView = () => {
   const {
     state: { itemsInCart, storeCurrency },
     dispatch,
   } = useContext(Context)
 
   const [cartTotal, setCartTotal] = useState(0)
+  const [hasError, setHasError] = useState(false)
 
   useEffect(() => {
     setCartTotal(
@@ -66,6 +68,22 @@ export const CartList = () => {
           maxWidth: 'maxWidth',
         }}
       >
+        {hasError && (
+          <Fragment>
+            <Divider variant="styles.spacer.sm" />
+            <Message
+              variant="primary"
+              sx={{
+                alignItems: 'center',
+                display: 'flex',
+                justifyContent: 'space-between',
+              }}
+            >
+              Hey, this is just a demo and the checkout isn't real
+              <Close onClick={() => setHasError(false)} />
+            </Message>
+          </Fragment>
+        )}
         <Divider variant="styles.spacer.md" />
         <Grid
           sx={{
@@ -148,7 +166,11 @@ export const CartList = () => {
                   flexDirection: 'column',
                 }}
               >
-                <Button variant="accent" disabled={itemsInCart.length === 0}>
+                <Button
+                  variant="accent"
+                  disabled={itemsInCart.length === 0}
+                  onClick={() => setHasError(true)}
+                >
                   checkout
                 </Button>
               </Flex>

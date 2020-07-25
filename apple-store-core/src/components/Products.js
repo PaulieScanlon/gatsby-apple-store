@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Box, Grid, Divider, Heading } from 'theme-ui'
+import { Box, Grid, Divider, Heading, Text } from 'theme-ui'
 import { ProductCard } from '../components/ProductCard'
 
 export const Products = ({ edges }) => {
@@ -17,6 +17,10 @@ export const Products = ({ edges }) => {
       >
         products
       </Heading>
+      <Divider variant="styles.spacer.md" />
+      <Text variant="default" sx={{ fontSize: 2, textAlign: 'center' }}>
+        Hello again, here's our full product range
+      </Text>
       <Divider variant="styles.spacer.lg" />
       <Grid
         sx={{
@@ -40,7 +44,6 @@ export const Products = ({ edges }) => {
               description={description}
               currency={variants[0].priceV2.currencyCode}
               price={Number(variants[0].price)}
-              cta="add to cart"
             />
           )
         })}

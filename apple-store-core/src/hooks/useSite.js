@@ -12,6 +12,7 @@ export const useSite = () => {
               url
               icon
             }
+            cta
           }
         }
       }

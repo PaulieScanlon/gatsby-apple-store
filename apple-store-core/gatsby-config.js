@@ -4,7 +4,7 @@ module.exports = (themeOptions) => {
   return {
     siteMetadata: {
       name: ``,
-      description: ``,
+      cta: ``,
       associateStores: [
         {
           name: ``,

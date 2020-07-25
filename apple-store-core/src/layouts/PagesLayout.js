@@ -11,7 +11,7 @@ const PagesLayout = ({ children }) => {
       <Box
         as="main"
         sx={{
-          minHeight: 'calc(100vh - 80px)',
+          minHeight: 'calc(100vh - 220px)',
         }}
       >
         {children}

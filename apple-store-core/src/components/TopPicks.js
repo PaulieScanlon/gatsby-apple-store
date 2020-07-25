@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Box, Grid, Divider, Heading } from 'theme-ui'
+import { Box, Grid, Divider, Heading, Text } from 'theme-ui'
 import { ProductCard } from '../components/ProductCard'
 
 const FILTER = 'TopPick'
@@ -19,6 +19,11 @@ export const TopPicks = ({ edges }) => {
       >
         top picks
       </Heading>
+      <Divider variant="styles.spacer.md" />
+      <Text variant="default" sx={{ fontSize: 2, textAlign: 'center' }}>
+        All of our products are amazing, but someone on our product team thinks
+        these ones are the best
+      </Text>
       <Divider variant="styles.spacer.lg" />
       <Grid
         sx={{
@@ -45,6 +50,7 @@ export const TopPicks = ({ edges }) => {
                 currency={variants[0].priceV2.currencyCode}
                 price={Number(variants[0].price)}
                 cta="add to cart"
+                topPick={true}
               />
             )
           })}
