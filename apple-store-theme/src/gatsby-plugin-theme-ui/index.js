@@ -16,6 +16,7 @@ export default {
     primaryLight: '#e6f7ff',
     primaryMid: '#b3e7ff',
     primaryDark: '#b3e7ff',
+    error: '#eb3837',
   },
   fonts: {
     body: 'Ruda',
@@ -29,9 +30,8 @@ export default {
     light: 200,
   },
   lineHeights: {
-    body: 2.2,
+    body: 1.6,
     heading: 1.2,
-    text: 1.6,
   },
   fontSizes: [12, 14, 16, 18, 28, 32, 44, 64],
   space: [0, 4, 8, 16, 32, 48, 64, 96, 128, 256],
@@ -57,10 +57,14 @@ export default {
   text: {
     default: {
       fontFamily: 'body',
-      lineHeight: 'text',
+      lineHeight: 'body',
       ':first-letter': {
         textTransform: 'capitalize',
       },
+    },
+    subText: {
+      color: 'darkGray',
+      variant: 'text.default',
     },
     bold: {
       fontWeight: 'bold',
@@ -205,13 +209,20 @@ export default {
   badges: {
     default: {
       px: 2,
+      py: 1,
+      '::first-letter': {
+        textTransform: 'capitalize',
+      },
     },
     primary: {
+      color: 'text',
       variant: 'badges.default',
+      backgroundColor: 'accent',
     },
     secondary: {
+      color: 'background',
       variant: 'badges.default',
-      backgroundColor: 'secondary',
+      backgroundColor: 'error',
     },
   },
   cards: {

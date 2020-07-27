@@ -29,7 +29,7 @@ export const Products = ({ edges }) => {
       >
         {edges.map((edge, index) => {
           const {
-            node: { title, description, images, variants },
+            node: { title, description, totalInventory, images, variants },
           } = edge
 
           const {
@@ -42,8 +42,11 @@ export const Products = ({ edges }) => {
               fluid={fluid}
               heading={title}
               description={description}
+              totalInventory={totalInventory}
               currency={variants[0].priceV2.currencyCode}
               price={Number(variants[0].price)}
+              weight={Number(variants[0].weight)}
+              weightUnit={variants[0].weightUnit}
             />
           )
         })}

@@ -15,6 +15,7 @@ export const useShopify = () => {
               title
               description
               productType
+              totalInventory
               images {
                 localFile {
                   childImageSharp {

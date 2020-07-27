@@ -1,6 +1,16 @@
 import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
-import { Flex, Box, Card, Heading, Text, Divider, Button } from 'theme-ui'
+import {
+  Grid,
+  Flex,
+  Box,
+  Card,
+  Badge,
+  Heading,
+  Text,
+  Divider,
+  Button,
+} from 'theme-ui'
 
 import Img from 'gatsby-image'
 
@@ -13,7 +23,10 @@ export const ProductCard = ({
   image,
   heading,
   description,
+  totalInventory,
   price,
+  weight,
+  weightUnit,
   currency,
   topPick,
 }) => {
@@ -98,6 +111,13 @@ export const ProductCard = ({
             {heading}
           </Heading>
           <Divider variant="styles.spacer.sm" />
+          {totalInventory === 0 ? (
+            <Badge variant="secondary">out of stock</Badge>
+          ) : (
+            <Badge variant="primary">only {totalInventory} left in stock</Badge>
+          )}
+          <Divider variant="styles.spacer.sm" />
+          <Divider variant="styles.spacer.sm" />
           <Flex
             sx={{
               alignItems: 'flex-end',
@@ -118,8 +138,17 @@ export const ProductCard = ({
               {price}
             </Heading>
           </Flex>
+          <Grid
+            sx={{
+              gridTemplateColumns: 'auto 1fr',
+              gridGap: 1,
+            }}
+          >
+            <Text variant="subText">{weight}</Text>
+            <Text variant="subText">{weightUnit}</Text>
+          </Grid>
           <Divider variant="styles.spacer.md" />
-          <Text variant="default" sx={{ color: 'grayDark', minHeight: '90px' }}>
+          <Text variant="subText" sx={{ minHeight: '90px' }}>
             {description}
           </Text>
           <Divider variant="styles.spacer.lg" />
@@ -128,7 +157,12 @@ export const ProductCard = ({
               justifyContent: 'flex-end',
             }}
           >
-            <Button onClick={() => handleAddToCart()}>{cta}</Button>
+            <Button
+              disabled={totalInventory === 0 ? true : false}
+              onClick={() => handleAddToCart()}
+            >
+              {cta}
+            </Button>
           </Flex>
         </Box>
       </Card>

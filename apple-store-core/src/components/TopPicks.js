@@ -34,7 +34,7 @@ export const TopPicks = ({ edges }) => {
           .filter((edge) => edge.node.productType === FILTER)
           .map((edge, index) => {
             const {
-              node: { title, description, images, variants },
+              node: { title, description, totalInventory, images, variants },
             } = edge
 
             const {
@@ -47,8 +47,11 @@ export const TopPicks = ({ edges }) => {
                 fluid={fluid}
                 heading={title}
                 description={description}
+                totalInventory={totalInventory}
                 currency={variants[0].priceV2.currencyCode}
                 price={Number(variants[0].price)}
+                weight={Number(variants[0].weight)}
+                weightUnit={variants[0].weightUnit}
                 cta="add to cart"
                 topPick={true}
               />
