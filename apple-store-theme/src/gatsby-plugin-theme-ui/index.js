@@ -36,7 +36,8 @@ export default {
   fontSizes: [12, 14, 16, 18, 28, 32, 44, 64],
   space: [0, 4, 8, 16, 32, 48, 64, 96, 128, 256],
   zIndices: {
-    header: '999',
+    fade: 998,
+    header: 999,
   },
   radii: [8],
   shadows: [
@@ -45,6 +46,7 @@ export default {
   ],
   sizes: {
     hero: 400,
+    fade: 96,
     container: 960,
     minWidth: 320,
     maxWidth: 1140,
