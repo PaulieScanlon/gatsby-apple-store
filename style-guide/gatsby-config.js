@@ -3,7 +3,7 @@ module.exports = {
     name: `Apple Store Style Guide`,
     description: `A Theme UI demo Style Guide`,
     siteUrl: `https://gatsby-apple-store-style-guide.netlify.app`,
-    siteImage: `apple-store-open-graph-image.jpg`,
+    siteImage: `images/apple-store-open-graph-image.jpg`,
     keywords: [`Gatsby`, `Theme UI`],
     lang: `en`,
     cta: ``,
