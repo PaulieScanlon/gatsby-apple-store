@@ -31,7 +31,7 @@ export const Seo = ({
     >
       <html lang={lang} />
       <meta name="description" content={description} />
-      <meta name="image" content={image} />
+      <meta name="image" content={`${siteUrl}/${image}`} />
       <meta name="image:alt" content={description} />
       <meta
         name="gatsby-theme"
@@ -44,7 +44,7 @@ export const Seo = ({
       <meta property="og:title" content={title} />
       <meta property="og:url" content={siteUrl} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
+      <meta property="og:image" content={`${siteUrl}/${image}`} />
       <meta property="og:image:alt" content={description}></meta>
 
       {/* Twitter */}
@@ -52,7 +52,7 @@ export const Seo = ({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:url" content={siteUrl} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:image" content={`${siteUrl}/${image}`} />
       <meta name="twitter:image:alt" content={description}></meta>
     </Helmet>
   )
