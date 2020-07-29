@@ -4,7 +4,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    name: `apple store US`,
+    name: `Apple Store US`,
     description: `A Gatsby Cloud demo application`,
     siteUrl: `https://gatsby-apple-store-us.netlify.app`,
     siteImage: `apple-store-open-graph-image.jpg`,

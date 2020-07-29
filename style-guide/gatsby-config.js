@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    name: `apple store US`,
+    name: `Apple Store Style Guide`,
     description: `A Theme UI demo Style Guide`,
     siteUrl: `https://gatsby-apple-store-style-guide.netlify.app`,
     siteImage: `apple-store-open-graph-image.jpg`,
