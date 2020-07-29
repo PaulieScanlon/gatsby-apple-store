@@ -2,16 +2,6 @@ module.exports = (themeOptions) => {
   const { shopName, accessToken } = themeOptions
 
   return {
-    siteMetadata: {
-      name: ``,
-      cta: ``,
-      associateStores: [
-        {
-          name: ``,
-          url: ``,
-        },
-      ],
-    },
     plugins: [
       `gatsby-transformer-sharp`,
       `gatsby-plugin-sharp`,

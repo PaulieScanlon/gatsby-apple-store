@@ -1,6 +1,5 @@
 // Data
 export { useShopify } from './src/hooks/useShopify'
-export { useSite } from './src/hooks/useSite'
 export { Context } from './src/context'
 
 // Views

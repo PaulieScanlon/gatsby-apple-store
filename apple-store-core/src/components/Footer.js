@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Grid, Card, Text, Link, Divider } from 'theme-ui'
 
-import { useSite } from '../hooks/useSite'
+import { useSite } from 'apple-store-theme'
 
 export const Footer = () => {
   const {

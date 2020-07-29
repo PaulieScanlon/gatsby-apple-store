@@ -3,11 +3,11 @@ import { Box, Flex, Card, NavLink, Grid, MenuButton } from 'theme-ui'
 import { Link as GatsbyLink } from 'gatsby'
 import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 
-import { useSite } from '../hooks/useSite'
-
 import { Logo } from './Logo'
 import { CartIcon } from './CartIcon'
 import { Dropdown } from './Dropdown'
+
+import { useSite } from 'apple-store-theme'
 
 export const Header = () => {
   const {

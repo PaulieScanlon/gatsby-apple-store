@@ -1,8 +1,4 @@
 import React, { Fragment } from 'react'
-import { Box } from 'theme-ui'
-
-import { Header } from '../components/Header'
-import { Footer } from '../components/Footer'
 
 import { Seo, useSite } from 'apple-store-theme'
 
@@ -24,16 +20,8 @@ const PagesLayout = ({ children }) => {
         keywords={keywords}
         lang={lang}
       />
-      <Header />
-      <Box
-        as="main"
-        sx={{
-          minHeight: 'calc(100vh - 220px)',
-        }}
-      >
-        {children}
-      </Box>
-      <Footer />
+
+      {children}
     </Fragment>
   )
 }
