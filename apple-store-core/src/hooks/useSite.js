@@ -7,12 +7,17 @@ export const useSite = () => {
         site {
           siteMetadata {
             name
+            description
+            siteUrl
+            siteImage
+            keywords
+            lang
+            cta
             associateStores {
               name
               url
               icon
             }
-            cta
           }
         }
       }
