@@ -1,3 +1,4 @@
+import { darken } from '@theme-ui/color'
 import codeTheme from '@theme-ui/prism/presets/github.json'
 
 export default {
@@ -128,6 +129,42 @@ export default {
         borderColor: 'muted',
       },
       variant: 'styles.hr.default',
+    },
+    table: {
+      width: '100%',
+      thead: {
+        backgroundColor: 'primaryDark',
+        tr: {
+          th: {
+            padding: 2,
+          },
+        },
+      },
+      tbody: {
+        'tr:nth-child(odd)': {
+          backgroundColor: 'primaryLight',
+        },
+        tr: {
+          td: {
+            padding: 2,
+          },
+        },
+      },
+    },
+    blockquote: {
+      backgroundColor: 'primaryLight',
+      borderRadius: 0,
+      borderLeftStyle: 'solid',
+      borderLeftWidth: 4,
+      borderLeftColor: 'primary',
+      mt: 0,
+      ml: 2,
+      mb: 3,
+      mr: 0,
+      p: {
+        p: 3,
+        mb: 0,
+      },
     },
     spacer: {
       sm: {
@@ -268,12 +305,16 @@ export default {
       textTransform: 'uppercase',
       justifyContent: 'center',
       fontWeight: 'bold',
+      transition: '.1s linear background-color, color',
       ':focus': {
         outlineColor: 'highlight',
       },
     },
     primary: {
       variant: 'buttons.default',
+      ':hover': {
+        backgroundColor: darken('primary', 0.12),
+      },
       '&:disabled': {
         variant: 'buttons.disabled',
       },
@@ -281,6 +322,9 @@ export default {
     secondary: {
       variant: 'buttons.default',
       backgroundColor: 'secondary',
+      ':hover': {
+        backgroundColor: darken('secondary', 0.12),
+      },
       '&:disabled': {
         variant: 'buttons.disabled',
       },
@@ -291,6 +335,9 @@ export default {
       flex: '1 1 auto',
       variant: 'buttons.default',
       backgroundColor: 'accent',
+      ':hover': {
+        backgroundColor: darken('accent', 0.12),
+      },
       '&:disabled': {
         color: 'grayLight',
         variant: 'buttons.disabled',
