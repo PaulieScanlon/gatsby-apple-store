@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import {
   Grid,
@@ -16,7 +16,7 @@ import Img from 'gatsby-image'
 
 import { getCurrency } from '../../utils/'
 import { Context } from '../context'
-import { useSite } from 'apple-store-theme'
+import { useSite, MatterWorld } from 'apple-store-theme'
 
 export const ProductCard = ({
   fluid,
@@ -35,6 +35,10 @@ export const ProductCard = ({
     dispatch,
   } = useContext(Context)
 
+  const imageRef = useRef(null)
+  const [imageProps, setImageProps] = useState(null)
+  const [matterTrigger, setMatterTrigger] = useState()
+
   const {
     site: {
       siteMetadata: { cta },
@@ -42,6 +46,7 @@ export const ProductCard = ({
   } = useSite()
 
   const handleAddToCart = () => {
+    setMatterTrigger(!matterTrigger)
     if (itemsInCart.filter((item) => item.heading === heading).length > 0) {
       dispatch({
         type: 'addDuplicateToCart',
@@ -66,6 +71,21 @@ export const ProductCard = ({
     }
   }
 
+  const handleResize = () => {
+    setImageProps(imageRef.current.getBoundingClientRect())
+  }
+
+  useEffect(() => {
+    setImageProps(imageRef.current.getBoundingClientRect())
+    window.addEventListener('resize', handleResize)
+  }, [])
+
+  useEffect(() => {
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
   return (
     <Box as="article">
       <Card
@@ -89,7 +109,7 @@ export const ProductCard = ({
               textAlign: 'center',
               color: 'text',
               transform: 'rotate(-45deg)',
-              zIndex: 1,
+              zIndex: 'topPicks',
               boxShadow: 1,
             }}
           >
@@ -98,8 +118,10 @@ export const ProductCard = ({
             </Text>
           </Box>
         )}
-
-        {fluid && <Img fluid={fluid} alt={heading} sx={{ zIndex: 1 }} />}
+        <MatterWorld sizeProps={imageProps} matterTrigger={matterTrigger} />
+        <Box ref={imageRef}>
+          <Img fluid={fluid} alt={heading} sx={{ zIndex: 1 }} />
+        </Box>
 
         <Box
           sx={{

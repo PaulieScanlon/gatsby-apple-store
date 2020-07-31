@@ -38,6 +38,7 @@
     "gatsby-plugin-theme-ui": "^0.3.0",
     "gatsby-source-filesystem": "^2.3.19",
     "gatsby-source-shopify": "^3.2.20",
+    "matter-js": "^0.14.2",
     "prop-types": "^15.7.2",
     "react-helmet": "^6.1.0",
     "theme-ui": "^0.3.1"

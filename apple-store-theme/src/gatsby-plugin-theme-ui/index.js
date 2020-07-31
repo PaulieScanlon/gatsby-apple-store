@@ -37,6 +37,9 @@ export default {
   fontSizes: [12, 14, 16, 18, 28, 32, 44, 64],
   space: [0, 4, 8, 16, 32, 48, 64, 96, 128, 256],
   zIndices: {
+    matterCanvas: 995,
+    checkoutCta: 996,
+    topPicks: 997,
     fade: 998,
     header: 999,
   },
@@ -335,6 +338,7 @@ export default {
       flex: '1 1 auto',
       variant: 'buttons.default',
       backgroundColor: 'accent',
+      boxShadow: 0,
       ':hover': {
         backgroundColor: darken('accent', 0.12),
       },

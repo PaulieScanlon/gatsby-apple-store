@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useState, useEffect } from 'react'
+import React, { Fragment, useContext, useState, useEffect, useRef } from 'react'
 import {
   Box,
   Flex,
@@ -17,6 +17,7 @@ import {
 import Img from 'gatsby-image'
 
 import { Context } from '../context'
+import { MatterWorld } from 'apple-store-theme'
 
 export const CartView = () => {
   const {
@@ -24,8 +25,27 @@ export const CartView = () => {
     dispatch,
   } = useContext(Context)
 
+  const cardRef = useRef(null)
+  const [cardProps, setCardProps] = useState(null)
+  const [matterTrigger, setMatterTrigger] = useState()
+
   const [cartTotal, setCartTotal] = useState(0)
   const [hasError, setHasError] = useState(false)
+
+  const handleResize = () => {
+    setCardProps(cardRef.current.getBoundingClientRect())
+  }
+
+  useEffect(() => {
+    setCardProps(cardRef.current.getBoundingClientRect())
+    window.addEventListener('resize', handleResize)
+  }, [])
+
+  useEffect(() => {
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   useEffect(() => {
     setCartTotal(
@@ -38,6 +58,7 @@ export const CartView = () => {
   }, [itemsInCart])
 
   const handleQuantity = (heading, event) => {
+    setMatterTrigger(!matterTrigger)
     dispatch({
       type: 'updateQuantity',
       payload: {
@@ -91,7 +112,8 @@ export const CartView = () => {
           }}
         >
           <Box>
-            <Card className="checkout-card">
+            <MatterWorld sizeProps={cardProps} matterTrigger={matterTrigger} />
+            <Card ref={cardRef}>
               <Divider variant="styles.spacer.md" />
               <Heading
                 as="div"
@@ -167,6 +189,9 @@ export const CartView = () => {
                 }}
               >
                 <Button
+                  sx={{
+                    zIndex: 'checkoutCta',
+                  }}
                   variant="accent"
                   disabled={itemsInCart.length === 0}
                   onClick={() => setHasError(true)}
