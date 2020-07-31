@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Box, Grid, Divider, Heading, Text } from 'theme-ui'
+
 import { ProductCard } from '../components/ProductCard'
 
 const FILTER = 'TopPick'

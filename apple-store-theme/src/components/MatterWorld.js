@@ -3,15 +3,16 @@ import PropTypes from 'prop-types'
 import { Box } from 'theme-ui'
 import Matter from 'matter-js'
 
-import apple from './apple-sprite.png'
+import appleUk from './apple-sprite-uk.png'
+import appleUs from './apple-sprite-us.png'
 
-export const MatterWorld = ({ sizeProps, matterTrigger }) => {
+export const MatterWorld = ({ sizeProps, matterTrigger, storeCurrency }) => {
   const { width, height } = sizeProps || { width: 0, height: 0 }
 
   const boxRef = useRef(null)
   const canvasRef = useRef(null)
 
-  const [matterRender, setMatterRender] = useState()
+  const [matterScene, setMatterScene] = useState()
 
   useEffect(() => {
     let Engine = Matter.Engine
@@ -40,7 +41,7 @@ export const MatterWorld = ({ sizeProps, matterTrigger }) => {
     Engine.run(engine)
     Render.run(render)
 
-    setMatterRender(render)
+    setMatterScene(render)
   }, [])
 
   /*eslint-disable */
@@ -48,15 +49,15 @@ export const MatterWorld = ({ sizeProps, matterTrigger }) => {
     let randomX = Math.floor(Math.random() * 270) + 170
     let randomY = Math.floor(Math.random() * 100) + 50
     let randomRotation = Math.floor(Math.random() * 0 + 45)
-    if (matterRender) {
+    if (matterScene) {
       Matter.World.add(
-        matterRender.engine.world,
+        matterScene.engine.world,
         Matter.Bodies.circle(randomX, randomY, 16, {
           restitution: 0.8,
           angle: randomRotation,
           render: {
             sprite: {
-              texture: apple,
+              texture: storeCurrency === '£' ? appleUk : appleUs,
               xScale: 0.35,
               yScale: 0.35,
             },
@@ -93,4 +94,6 @@ MatterWorld.propTypes = {
   sizeProps: PropTypes.any,
   /** Arbitrary prop to trigger re-render */
   matterTrigger: PropTypes.bool,
+  /** The store currency value */
+  storeCurrency: PropTypes.string,
 }

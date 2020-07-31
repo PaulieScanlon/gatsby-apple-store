@@ -58,12 +58,19 @@ export const CartView = () => {
   }, [itemsInCart])
 
   const handleQuantity = (heading, event) => {
-    setMatterTrigger(!matterTrigger)
+    let value = event.target.value
+
+    let stateValue = itemsInCart.filter((item) => item.heading === heading)
+
+    if (value > stateValue[0].quantity) {
+      setMatterTrigger(!matterTrigger)
+    }
+
     dispatch({
       type: 'updateQuantity',
       payload: {
         heading,
-        quantity: event.target.value,
+        quantity: value,
       },
     })
   }
@@ -112,7 +119,11 @@ export const CartView = () => {
           }}
         >
           <Box>
-            <MatterWorld sizeProps={cardProps} matterTrigger={matterTrigger} />
+            <MatterWorld
+              sizeProps={cardProps}
+              matterTrigger={matterTrigger}
+              storeCurrency={storeCurrency}
+            />
             <Card ref={cardRef}>
               <Divider variant="styles.spacer.md" />
               <Heading

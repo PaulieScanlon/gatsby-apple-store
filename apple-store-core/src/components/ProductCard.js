@@ -31,7 +31,7 @@ export const ProductCard = ({
   topPick,
 }) => {
   const {
-    state: { itemsInCart },
+    state: { itemsInCart, storeCurrency },
     dispatch,
   } = useContext(Context)
 
@@ -118,7 +118,11 @@ export const ProductCard = ({
             </Text>
           </Box>
         )}
-        <MatterWorld sizeProps={imageProps} matterTrigger={matterTrigger} />
+        <MatterWorld
+          sizeProps={imageProps}
+          matterTrigger={matterTrigger}
+          storeCurrency={storeCurrency}
+        />
         <Box ref={imageRef}>
           <Img fluid={fluid} alt={heading} sx={{ zIndex: 1 }} />
         </Box>
