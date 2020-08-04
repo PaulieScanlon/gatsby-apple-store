@@ -3,4 +3,4 @@ export { useSite } from './src/hooks/useSite'
 
 // Components
 export { Seo } from './src/components/Seo'
-export { MatterWorld } from './src/components/MatterWorld'
+export { MatterScene } from './src/components/MatterScene'

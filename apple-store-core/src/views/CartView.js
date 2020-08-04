@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useState, useEffect, useRef } from 'react'
+import React, { Fragment, useContext, useState, useEffect } from 'react'
 import {
   Box,
   Flex,
@@ -17,7 +17,7 @@ import {
 import Img from 'gatsby-image'
 
 import { Context } from '../context'
-import { MatterWorld } from 'apple-store-theme'
+import { MatterScene } from 'apple-store-theme'
 
 export const CartView = () => {
   const {
@@ -25,27 +25,10 @@ export const CartView = () => {
     dispatch,
   } = useContext(Context)
 
-  const cardRef = useRef(null)
-  const [cardProps, setCardProps] = useState(null)
-  const [matterTrigger, setMatterTrigger] = useState()
+  const [particleTrigger, setParticleTrigger] = useState()
 
   const [cartTotal, setCartTotal] = useState(0)
   const [hasError, setHasError] = useState(false)
-
-  const handleResize = () => {
-    setCardProps(cardRef.current.getBoundingClientRect())
-  }
-
-  useEffect(() => {
-    setCardProps(cardRef.current.getBoundingClientRect())
-    window.addEventListener('resize', handleResize)
-  }, [])
-
-  useEffect(() => {
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
 
   useEffect(() => {
     setCartTotal(
@@ -63,7 +46,7 @@ export const CartView = () => {
     let stateValue = itemsInCart.filter((item) => item.heading === heading)
 
     if (value > stateValue[0].quantity) {
-      setMatterTrigger(!matterTrigger)
+      setParticleTrigger(!particleTrigger)
     }
 
     dispatch({
@@ -118,13 +101,16 @@ export const CartView = () => {
             gridTemplateColumns: ['auto', 'auto', 'auto', 'auto 320px'],
           }}
         >
-          <Box>
-            <MatterWorld
-              sizeProps={cardProps}
-              matterTrigger={matterTrigger}
+          <Box
+            sx={{
+              position: 'relative',
+            }}
+          >
+            <MatterScene
+              particleTrigger={particleTrigger}
               storeCurrency={storeCurrency}
             />
-            <Card ref={cardRef}>
+            <Card>
               <Divider variant="styles.spacer.md" />
               <Heading
                 as="div"

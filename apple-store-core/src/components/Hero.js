@@ -1,14 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { Box, Container, Heading, Text, Divider } from 'theme-ui'
 
 import { ApplePattern } from './ApplePattern'
 import { useShopify } from '../hooks/useShopify'
+import { Context } from '../context'
+import { MatterScene } from 'apple-store-theme'
 
 export const Hero = () => {
   const {
     shopifyShop: { name, description },
   } = useShopify()
+
+  const {
+    state: { itemsInCart, storeCurrency },
+  } = useContext(Context)
 
   const heading = name.split('~')
 
@@ -25,6 +31,10 @@ export const Hero = () => {
         backgroundColor: 'primaryLight',
       }}
     >
+      <MatterScene
+        particleTrigger={itemsInCart}
+        storeCurrency={storeCurrency}
+      />
       <Container
         sx={{
           zIndex: 1,
