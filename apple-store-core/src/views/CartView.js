@@ -25,8 +25,8 @@ export const CartView = () => {
     dispatch,
   } = useContext(Context)
 
-  const [particleTrigger, setParticleTrigger] = useState()
-
+  const [particleTrigger, setParticleTrigger] = useState(false)
+  const [floorTrigger, setFloorTrigger] = useState(false)
   const [cartTotal, setCartTotal] = useState(0)
   const [hasError, setHasError] = useState(false)
 
@@ -67,6 +67,11 @@ export const CartView = () => {
     })
   }
 
+  const handleCheckout = () => {
+    setHasError(true)
+    setFloorTrigger(!floorTrigger)
+  }
+
   return (
     <Fragment>
       <Box
@@ -101,16 +106,17 @@ export const CartView = () => {
             gridTemplateColumns: ['auto', 'auto', 'auto', 'auto 320px'],
           }}
         >
-          <Box
-            sx={{
-              position: 'relative',
-            }}
-          >
-            <MatterScene
-              particleTrigger={particleTrigger}
-              storeCurrency={storeCurrency}
-            />
-            <Card>
+          <Box>
+            <Card
+              sx={{
+                position: 'relative',
+              }}
+            >
+              <MatterScene
+                floorTrigger={floorTrigger}
+                particleTrigger={particleTrigger}
+                storeCurrency={storeCurrency}
+              />
               <Divider variant="styles.spacer.md" />
               <Heading
                 as="div"
@@ -191,7 +197,7 @@ export const CartView = () => {
                   }}
                   variant="accent"
                   disabled={itemsInCart.length === 0}
-                  onClick={() => setHasError(true)}
+                  onClick={() => handleCheckout()}
                 >
                   checkout
                 </Button>

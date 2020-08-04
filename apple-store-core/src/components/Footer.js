@@ -31,7 +31,7 @@ export const Footer = () => {
             </Text>
             <Divider variant="styles.spacer.sm" />
             <Text variant="default" sx={{ fontSize: 'inherit' }}>
-              A store to demo Gatsby Cloud{' '}
+              A Shopify store to demo Gatsby Cloud{' '}
               <span role="img" aria-label="cloud emoji">
                 ☁️
               </span>

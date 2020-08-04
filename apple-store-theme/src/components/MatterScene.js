@@ -10,7 +10,11 @@ const STATIC_DENSITY = 15
 const PARTICLE_SIZE = 16
 const PARTICLE_BOUNCYNESS = 0.9
 
-export const MatterScene = ({ particleTrigger, storeCurrency }) => {
+export const MatterScene = ({
+  floorTrigger,
+  particleTrigger,
+  storeCurrency,
+}) => {
   const boxRef = useRef(null)
   const canvasRef = useRef(null)
 
@@ -42,7 +46,7 @@ export const MatterScene = ({ particleTrigger, storeCurrency }) => {
       isStatic: true,
       label: 'floor',
       render: {
-        fillStyle: 'transparent',
+        fillStyle: 'red',
       },
     })
 
@@ -70,6 +74,13 @@ export const MatterScene = ({ particleTrigger, storeCurrency }) => {
       let randomX = Math.floor(Math.random() * -width) + width
       let randomRotation = Math.floor(Math.random() * 0 + 45)
 
+      // Reset the gravity
+      scene.engine.world.gravity = {
+        x: 0,
+        y: 1,
+        scale: 0.001,
+      }
+
       Matter.World.add(
         scene.engine.world,
         Matter.Bodies.circle(randomX, -PARTICLE_SIZE, PARTICLE_SIZE, {
@@ -86,11 +97,30 @@ export const MatterScene = ({ particleTrigger, storeCurrency }) => {
       )
     }
   }, [particleTrigger])
+
+  useEffect(() => {
+    if (scene && constraints) {
+      // Dynamically update the gravity
+      scene.engine.world.gravity = {
+        x: 0.9,
+        y: 1,
+        scale: 0.002,
+      }
+    }
+  }, [floorTrigger])
+
   /*eslint-enable */
 
   useEffect(() => {
     if (constraints) {
       let { width, height } = constraints
+
+      // Reset the gravity
+      scene.engine.world.gravity = {
+        x: 0,
+        y: 1,
+        scale: 0.001,
+      }
 
       // Dynamically update canvas and bounds
       scene.bounds.max.x = width
@@ -136,8 +166,10 @@ export const MatterScene = ({ particleTrigger, storeCurrency }) => {
 }
 
 MatterScene.propTypes = {
-  /** Arbitrary prop to trigger re-render */
+  /** Arbitrary prop to trigger particle add */
   particleTrigger: PropTypes.any,
+  /** Arbitrary prop to trigger floor move */
+  floorTrigger: PropTypes.any,
   /** The store currency value */
   storeCurrency: PropTypes.string,
 }
