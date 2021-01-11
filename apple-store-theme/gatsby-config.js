@@ -19,5 +19,12 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-theme-ui`,
     `gatsby-plugin-mdx`,
+    {
+      resolve: 'gatsby-plugin-google-fonts',
+      options: {
+        fonts: [`ruda\:500,700,900`],
+        display: 'swap',
+      },
+    },
   ],
 }
